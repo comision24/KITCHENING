@@ -1,0 +1,15 @@
+footer.main-footer {text-align: center;}
+
+footer.main-footer nav {}
+
+footer.main-footer nav ul {margin: 15px 0 0 0;}
+
+footer.main-footer nav ul li {
+    background-color: var(--red);
+    padding: 5px 0;
+    margin: 2px 0;
+}
+
+footer.main-footer nav ul li a {
+    color: var(--white);
+}

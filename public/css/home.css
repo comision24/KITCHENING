@@ -1,0 +1,50 @@
+main.home {}
+
+main.home section.banner {
+    display: none;
+}
+
+main.home section.banner img {}
+
+main.home section.vip-products {}
+
+main.home section.vip-products article.product {
+    margin: 15px 0;
+}
+
+main.home .vip-products .product .photo-container {
+    position: relative;
+}
+
+main.home .vip-products .product .photo-container img.photo {
+    width: 100%;
+}
+
+main.home .vip-products .product .photo-container img.sticker {
+    position: absolute;
+    top: 0;
+    right: 15px;
+}
+
+main.home .vip-products .product .photo-container a.zoom {
+    display: block;
+    background-color: rgba(0,0,0,.5);
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    color: var(--white);
+    text-align: center;
+    padding: 10px;
+    transform: translateY(-50%);
+}
+
+main.home .vip-products .product h2 {}
+
+main.home .vip-products .product p {}
+
+main.home .vip-products .product a.more {
+    display: inline-block;
+    background-color: var(--gray);
+    color: var(--white);
+    padding: 5px 7px;
+}

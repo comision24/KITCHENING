@@ -1,0 +1,33 @@
+header.main-header {
+    text-align: center;
+}
+
+header.main-header .logo {
+  border-radius: 50%;
+  display: block;
+  margin: 15px auto 20px;
+}
+
+header.main-header .burger-menu {
+    color: var(--white);
+    background-color: var(
+    --gray);
+    padding: 5px 7px;
+    font-size: 1.3rem;
+}
+
+header.main-header .main-nav {
+}
+
+header.main-header .main-nav ul {}
+
+header.main-header .main-nav ul li {
+    background-color: var(--gray);
+    padding: 5px 0;
+    margin: 2px 0;
+}
+
+header.main-header .main-nav ul li a {
+    color: var(--white);
+}
+
