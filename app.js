@@ -18,5 +18,9 @@ app.get('/registro',(req, res) => {
   res.sendFile(path.join(__dirname,'./views/register.html'))
 })
 
+app.get('/pseudoclases',(req, res) => {
+  res.sendFile(path.join(__dirname,'./views/pseudoclases.html'))
+})
+
 app.listen(port,() => console.log(`http://localhost:${port}`))
 

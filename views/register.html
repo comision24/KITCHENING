@@ -37,80 +37,81 @@
         <li><a href="">QUIENES</a></li>
         <li><a href="">SERVICIOS</a></li>
         <li><a href="">PORTFOLIO</a></li>
-        <li><a href="">SUCURSALES</a></li>
+        <li><a href="/pseudoclases">PSEUDOCLASES</a></li>
         <li><a href="/registro">REGISTRO</a></li>
       </ul>
     </nav>
   </header>
 
   <main class="register container my-5">
-    <form action="/registro" method="post" class="row">
+    <form action="/registro" method="post" class="row justify-content-center">
 
       <!-- TIPO FILE -->
-      <div class="col-12 d-flex flex-column mb-3">
+      <div class="col-10 col-md-8 d-flex mx-2 flex-column mb-3">
       <label class="" for="avatar">
         <figure class="container-preview-img mx-auto">
           <img src="https://t4.ftcdn.net/jpg/00/64/67/63/360_F_64676383_LdbmhiNM6Ypzb3FM4PPuFP9rHe7ri8Ju.webp"
             alt="avatar default">
         </figure>
       </label>
-        <input class="form-control form-control-sm w-50 mx-auto" type="file" name="avatar" id="avatar" value="avatar"
+        <input class="form-control form-control-sm mx-auto" type="file" name="avatar" id="avatar" value="avatar"
           accept=".jpg" multiple>
 
       </div>
 
       <!-- TIPO TEXT -->
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label class="" for="nombre">Nombre</label>
         <input class="form-control form-control-sm" type="text" name="nombre" value="" id="nombre">
       </div>
 
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="apellido">Apellido</label>
         <input class="form-control form-control-sm" type="text" name="apellido" value="" id="apellido">
       </div>
 
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="usuario">Nombre usuario</label>
         <input class="form-control form-control-sm" type="text" name="usuario" value="" id="usuario">
       </div>
 
       <!-- TIPO EMAIL -->
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="email">Email</label>
         <input class="form-control form-control-sm" type="email" name="email" value="" id="email">
       </div>
 
       <!-- TIPO PASSWORD -->
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="contrasenia">Contraseña</label>
         <input class="form-control form-control-sm" type="password" name="contrasenia" value="" id="contrasenia">
       </div>
 
       <!-- TIPO TEL -->
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="telefono">Teléfono</label>
         <input class="form-control form-control-sm" type="tel" name="telefono" value="" id="telefono">
       </div>
 
       <!-- TIPO DATE -->
-      <div class="col-10 mx-auto col-md-6 col-lg-4 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="fechaNac">Fecha de nacimiento</label>
         <input class="form-control form-control-sm" type="date" name="fechaNac" value="2024-01-22" min="2024-01-01"
           max="2024-01-31" id="fechaNac">
       </div>
 
       <!-- TIPO COLOR -->
-      <div class="col-8 d-flex flex-column mb-3">
+      <div class="col-10 col-md-6 col-lg-4 d-flex flex-column mb-3">
         <label for="colorPref">Color preferido</label>
-        <input class="form-control form-control-sm form-control-color" type="color" name="colorPref" value=""
+        <input class="form-control form-control-sm" type="color" name="colorPref" value=""
           id="colorPref">
       </div>
 
-      <div class="col-12 row">
+      <div class="col-10 col-md-12 row p-0">
+        <hr>
         <h5 class="col-12">Dirección</h5>
         <!-- SELECT PAÍS -->
-        <div class="col-4 mb-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
           <select class="form-select form-select-sm" name="Pais">
             <option value="" selected hidden>Seleccionar País</option>
             <option value="ARG">Argentina</option>
@@ -121,7 +122,7 @@
         </div>
 
         <!-- SELECT PROVINCIA-->
-        <div class="col-4 mb-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
           <select class="form-select form-select-sm" name="provincia">
             <option value="" selected hidden>Seleccionar Provincia</option>
             <option value="Buenos Aires">Buenos Aires</option>
@@ -131,7 +132,7 @@
         </div>
 
         <!-- SELECT MUNICIPIOS -->
-        <div class="col-4 mb-3">
+        <div class="col-12 col-md-6 col-lg-4 mb-3">
           <select class="form-select form-select-sm" name="municipios">
             <option value="" selected hidden>Seleccionar Municipio</option>
             <option value="Buenos Aires">Malvinas Argentinas</option>
@@ -141,116 +142,116 @@
         </div>
 
         <!-- TIPO NUMBER -->
-        <div class="col-12 d-flex">
-          <div class="">
-            <input class="form-control form-control-sm" type="text" name="calle" value="" placeholder="calle">
+        <div class="col-12 col-md-6 col-lg-4 p-0 row m-0">
+          <div class="col-8">
+            <input class="form-control form-control-sm" type="text" name="calle" value="" placeholder="Calle">
           </div>
-          <div class="">
-            <input class="form-control form-control-sm" type="number" name="numero" value="" placeholder="número">
+          <div class="col-4">
+            <input class="form-control form-control-sm" type="number" name="numero" value="" placeholder="Nro">
           </div>
         </div>
 
       </div>
 
       <!-- TIPO RADIO -->
-      <div class="col-12 row my-2">
+      <div class="col-10 col-md-12 row p-0 my-2">
         <hr>
         <h5 class="col-12">Método de pago preferido</h5>
         
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="metodoPagoPref" id="efectivo" value="efectivo" checked>
           <label for="efectivo">Efectivo</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="metodoPagoPref" id="debito" value="debito">
           <label for="debito">Débito</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="metodoPagoPref" id="tarjeta" value="tarjeta">
           <label for="tarjeta">Tarjeta</label>
         </div>
       </div>
 
       <!-- TIPO RADIO -->
-      <div class="col-12 row my-2">
+      <div class="col-10 col-md-12 row p-0 my-2">
         <hr>
         <h5 class="col-12">Genero</h5>
         
-        <div class="col-2">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="genero" id="masculino" value="masculino">
           <label for="masculino">Masculino</label>
         </div>
-        <div class="col-2">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="genero" id="femenino" value="femenino">
           <label for="femenino">Femenino</label>
         </div>
-        <div class="col-3">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="genero" id="sinGenero" value="sinGenero">
           <label for="sinGenero">Sin genero</label>
         </div>
-        <div class="col-4">
+        <div class="col-12 col-md-3">
           <input type="radio" class="form-check-input" name="genero" id="prefNo" value="prefNo">
-          <label for="prefNo">Prefiero no contestar</label>
+          <label class="text-nowrap" for="prefNo">Prefiero no contestar</label>
         </div>
       </div>
 
 
       <!-- TIPO CHECKBOX -->
-      <div class="row my-2">
+      <div class="col-10 col-md-12 row p-0 my-2">
         <hr>
         <h5 class="col-12">Elige tus intereses</h5>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="moda" value="moda">
           <label for="moda">Moda</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="fotografia" value="fotografia">
           <label for="fotografia">Fotografía</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="portafolio" value="portafolio">
           <label for="portafolio">Portafolio</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="cv" value="cv">
           <label for="cv">Curriculum</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="tecnologia" value="tecnologia" checked>
           <label for="tecnologia">Tecnología</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="entretenimiento" value="entretenimiento">
           <label for="entretenimiento">Entretenimiento</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="marketing" value="marketing">
           <label for="marketing">Marketing</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="eventos" value="eventos">
           <label for="eventos">Eventos</label>
         </div>
 
-        <div class="col-3">
+        <div class="col-12 col-md-4 col-lg-3">
           <input type="checkbox" class="form-check-input" name="intereses" id="saludBelleza" value="saludBelleza">
           <label for="saludBelleza">Salud y belleza</label>
         </div>
       </div>
 
-      <div class="d-flex justify-content-end gap-2 mt-4">
+      <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-4">
         <button class="btn btn-success" type="submit">Enviar Datos</button>
-        <button class="btn btn-danger" type="reset">Borrar todo</button>
+        <button class="btn btn-custom-danger" type="reset">Borrar todo</button>
       </div>
     </form>
   </main>
@@ -259,12 +260,12 @@
   <footer class="main-footer">
     <nav>
       <ul>
-        <li><a href="">Home</a></li>
-        <li><a href="">Quienes</a></li>
-        <li><a href="">Servicios</a></li>
-        <li><a href="">Portfolio</a></li>
-        <li><a href="">Sucursales</a></li>
-        <li><a href="">Contacto</a></li>
+        <li><a href="/home">HOME</a></li>
+        <li><a href="">QUIENES</a></li>
+        <li><a href="">SERVICIOS</a></li>
+        <li><a href="">PORTFOLIO</a></li>
+        <li><a href="/pseudoclases">PSEUDOCLASES</a></li>
+        <li><a href="/registro">REGISTRO</a></li>
       </ul>
     </nav>
   </footer>

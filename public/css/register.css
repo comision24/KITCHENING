@@ -11,3 +11,14 @@
   height: 100%;
   object-fit: contain;
 }
+
+
+.btn-custom-danger {
+  background-color: var(--red);
+  color: var(--white);
+}
+
+.btn-custom-danger:hover {
+  color: black;
+  background-color: rgba(255,0,0,.1);
+}
