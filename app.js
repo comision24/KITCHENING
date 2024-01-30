@@ -22,5 +22,9 @@ app.get('/pseudoclases',(req, res) => {
   res.sendFile(path.join(__dirname,'./views/pseudoclases.html'))
 })
 
+app.get('/position',(req, res) => {
+  res.sendFile(path.join(__dirname,'./views/position.html'))
+})
+
 app.listen(port,() => console.log(`http://localhost:${port}`))
 

@@ -55,6 +55,11 @@ main.home .vip-products .product a.more {
     padding: 5px 7px;
 }
 
+/* BANNER */
+main.home .carousel-inner {
+    height: 300px;
+}
+
 
 /* Tablet */
 @media (min-width: 426px) {  
