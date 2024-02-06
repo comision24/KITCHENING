@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>KITCHENING</title>
+
+  <!-- Hamburgers CSS -->
+  <link rel="stylesheet" href="/css/library/hamburgers.min.css">
+
   <link rel="stylesheet" href="/css/style.css">
 
   <!-- FONTAWESOME -->
@@ -17,11 +21,18 @@
   <header class="main-header">
     <img class="logo" src="/images/logo.jpg" alt="logo">
 
-    <a href="#" class="burger-menu">
+   <!--  <a href="#" class="burger-menu">
       <i class="fa-solid fa-bars"></i>
-    </a>
+    </a> -->
 
-    <nav class="main-nav">
+    <button class="burger-menu hamburger hamburger--spring" type="button"
+    aria-label="Menu" aria-controls="#navigation">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+
+    <nav class="main-nav" id="navigation">
       <ul>
         <li><a href="/home">HOME</a></li>
         <li><a href="">QUIENES</a></li>
@@ -67,6 +78,8 @@
     </nav>
   </footer>
 
+    <!-- Hamburger SCRIPT -->
+    <script src="/js/library/hamburguer.js"></script>
 </body>
 
 </html>
