@@ -7,6 +7,7 @@ const port = 3030;
 const authRoutes = require('./routes/authentication.routes')
 const cartRoutes = require('./routes/cart.routes')
 const otherRoutes = require("./routes/other.routes")
+const productRoutes = require("./routes/products.routes")
 
 /* CONFIGURACIONES */
 app.use(express.static('public'))
@@ -16,22 +17,6 @@ app.use(express.static('public'))
 app.use("/", otherRoutes)
 app.use("/autenticacion", authRoutes)
 app.use("/carrito", cartRoutes)
-
-// app.get('/home',(req,res) => {
-//   res.redirect('/');
-// })
-
-// app.get('/registro',(req, res) => {
-//   res.sendFile(path.join(__dirname,'./views/register.html'))
-// })
-
-// app.get('/pseudoclases',(req, res) => {
-//   res.sendFile(path.join(__dirname,'./views/pseudoclases.html'))
-// })
-
-// app.get('/position',(req, res) => {
-//   res.sendFile(path.join(__dirname,'./views/position.html'))
-// })
+app.use("/productos", productRoutes)
 
 app.listen(port,() => console.log(`http://localhost:${port}`))
-
