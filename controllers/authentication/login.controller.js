@@ -1,3 +1,4 @@
-module.exports = (req,res) => {     
-  res.send("ESTA ES LA VISTA DE LOGIN (/autenticacion/iniciar)")
-}
+const path = require("path");
+module.exports = (req, res) => {
+  res.sendFile(path.join(__dirname, "../../views/login.html"));
+};
