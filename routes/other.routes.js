@@ -7,4 +7,6 @@ router.get("/", otherController.home)
 router.get("/home",(req,res) => res.redirect("/"))
 
 
+router.get("/sobre-nosotros", otherController.about)
+
 module.exports = router

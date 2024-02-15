@@ -1,4 +1,6 @@
-const path = require("path")
 module.exports = (req, res) => {
-  res.sendFile(path.join(__dirname,"../../views/home.html"))
-}
+  const banner = ["img-banner.jpg", "img-banner-2.jpg"];
+  res.render("home", { 
+    bannerImages: banner
+  });
+};
