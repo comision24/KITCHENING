@@ -32,6 +32,8 @@ module.exports = (req, res) => {
 
   const idProduct = parseInt(req.params.id);
   const nameCategory = req.params.category
+  const priceQuery = req.query.precio;
+  const categoryQuery = req.query.category
 
   const productFind = arrProductos.find(product => product.id === idProduct)
 
@@ -39,8 +41,8 @@ module.exports = (req, res) => {
     return res.send("El producto con el ID número " + idProduct + " no existe.")
   }
 
-  if(nameCategory) {
-    return  res.send("ESTE ES EL PRODUCTO CON EL ID NÚMERO: " + productFind.name + " Y SU CATEGORIA ES: " + nameCategory)
+  if(nameCategory || categoryQuery) {
+    return  res.send("ESTE ES EL PRODUCTO CON EL ID NÚMERO: " + productFind.name + " Y SU CATEGORIA ES: " + (nameCategory ? nameCategory : categoryQuery) + ", el precio es: $" + priceQuery)
   }
 
   res.send("ESTE ES EL PRODUCTO CON EL ID NÚMERO: " + productFind.name);
