@@ -7,8 +7,8 @@
       "image": "Sushi-web.jpg",
       "chef": "Roberto Nishida",
       "sale": false,
-      "newest": true,
-      "free": false,
+      "newest": false,
+      "free": true,
       "available": true
    },
    {
@@ -186,6 +186,42 @@
       "description": "PSi estás buscando una nueva forma de alimentarte, más consciente y sana para tu cuerpo, este curso te ayudará a incorporar las recetas vegetarianas para lograrlo. Mauro Massimino, egresado del instituto Gato Dumas y dueño de la cadena de restaurantes Buenos Aires Verde, te enseña cómo utilizar ingredientes saludables en sabrosas preparaciones y estar en armonía con la naturaleza.",
       "image": "cocinaNatural.jpg",
       "chef": "Mauro Massimino",
+      "sale": true,
+      "newest": false,
+      "free": false,
+      "available": true
+   },
+   {
+      "id": 17,
+      "title": "Fideos con tuco",
+      "price": "1000",
+      "description": "Te enseñaremos a crear los mejores fideos con tuco.",
+      "image": "not-image.png",
+      "chef": "Borja Blazquez",
+      "sale": false,
+      "newest": false,
+      "free": true,
+      "available": true
+   },
+   {
+      "id": 18,
+      "title": "Milanesas napolitana",
+      "price": "2000",
+      "description": "Te enseñaremos a clavarte una re milanga",
+      "image": "not-image.png",
+      "chef": "Gustavo Nari",
+      "sale": true,
+      "newest": false,
+      "free": false,
+      "available": true
+   },
+   {
+      "id": 19,
+      "title": "torta frita",
+      "price": "500",
+      "description": "Te enseñaremos a comerte una torta frita",
+      "image": "not-image.png",
+      "chef": "Ariel Gravano",
       "sale": true,
       "newest": false,
       "free": false,
