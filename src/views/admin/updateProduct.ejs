@@ -3,7 +3,7 @@
 <a href="/admin/productos" class="btn btn-primary mb-4">Volver al listado</a>
 
 <div class="card container p-4" style="width:60rem;">
-  <form action="" class="row justify-content-between">
+  <form action="/admin/editar-producto/<%= product.id %>?_method=PUT" method="POST" class="row justify-content-between">
 
     <div class="mb-3 col-6">
       <label class="form-label">Titulo</label>

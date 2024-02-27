@@ -10,15 +10,15 @@ module.exports = (req, res) => {
 
   // 3° crear el ID del nuevo producto
   const newId = products[products.length - 1].id + 1;
-
+ 
   // 4° nuevo objeto producto
   const newProduct = {
     id: newId,
-    title,
-    price,
-    description,
+    title: title.trim(),
+    price: +price,
+    description: description.trim(),
     image: "not-image.png",
-    chef,
+    chef: chef.trim(),
     sale: section === "sale",
     newest: section === "newest",
     free: section === "free",

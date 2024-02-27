@@ -1,15 +1,15 @@
 [
    {
       "id": 1,
-      "title": "SUSHI PROFESIONAL",
-      "price": 10530,
+      "title": "SUSHI PROFESIONAL 22",
+      "price": 1234,
       "description": "Con una gran experiencia Roberto Nishida te enseña los secretos de las técnicas básicas en la elaboración del sushi, vas a descubrir la importancia de cada ingrediente para que realices una gran variedad de rolls, sashimis y niguiris.",
       "image": "Sushi-web.jpg",
-      "chef": "Roberto Nishida",
-      "sale": false,
+      "chef": "Guillermo Calabrese",
+      "sale": true,
       "newest": false,
-      "free": true,
-      "available": true
+      "free": false,
+      "available": false
    },
    {
       "id": 2,
@@ -194,7 +194,7 @@
    {
       "id": 17,
       "title": "Fideos con tuco",
-      "price": "1000",
+      "price": 1000,
       "description": "Te enseñaremos a crear los mejores fideos con tuco.",
       "image": "not-image.png",
       "chef": "Borja Blazquez",
@@ -204,27 +204,15 @@
       "available": true
    },
    {
-      "id": 18,
-      "title": "Milanesas napolitana",
-      "price": "2000",
-      "description": "Te enseñaremos a clavarte una re milanga",
+      "id": 20,
+      "title": "Pizza",
+      "price": 3000,
+      "description": "descripción de la pizza",
       "image": "not-image.png",
-      "chef": "Gustavo Nari",
-      "sale": true,
+      "chef": "Mauro Massimino",
+      "sale": false,
       "newest": false,
-      "free": false,
-      "available": true
-   },
-   {
-      "id": 19,
-      "title": "torta frita",
-      "price": "500",
-      "description": "Te enseñaremos a comerte una torta frita",
-      "image": "not-image.png",
-      "chef": "Ariel Gravano",
-      "sale": true,
-      "newest": false,
-      "free": false,
+      "free": true,
       "available": true
    }
 ]
