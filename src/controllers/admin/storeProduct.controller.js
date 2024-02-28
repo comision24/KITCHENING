@@ -1,23 +1,27 @@
 const path = require("path")
 // 1° traer todos los productos existentes en mi base de datos.
-let products = require("../../database/products.json");
 const fs = require("fs");
+const { loadData } = require("../../database");
 
 module.exports = (req, res) => {
+  let products = loadData()
 
-  // 2° obtener los valores que el usuario me manda por el body
-  const { title, price, description, chef, section, available } = req.body;
+  const { title, price, description, chef, section, available} = req.body;
 
-  // 3° crear el ID del nuevo producto
   const newId = products[products.length - 1].id + 1;
  
-  // 4° nuevo objeto producto
+  let newImages = [];
+  if(req.files.imagesSecondary?.length) {
+    newImages = req.files.imagesSecondary?.map(img => img.filename)
+  }
+
   const newProduct = {
     id: newId,
     title: title.trim(),
     price: +price,
     description: description.trim(),
-    image: "not-image.png",
+    imagePrincipal: req.files.imagePrincipal?.length ? req.files.imagePrincipal[0]?.filename : "not-image.png",
+    imagesSecondary: newImages.length ? newImages : ["not-image.png"],
     chef: chef.trim(),
     sale: section === "sale",
     newest: section === "newest",
@@ -25,7 +29,6 @@ module.exports = (req, res) => {
     available: available === "on",
   };
 
-  // 5° insertar el nuevo producto en el array de products
   products = [...products, newProduct];
 
   products = JSON.stringify(products, null, 3);

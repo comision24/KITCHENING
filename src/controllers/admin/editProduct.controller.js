@@ -1,23 +1,14 @@
-const products = require("../../database/products.json");
-const { saveData } = require("../../database");
+const { saveData, loadData } = require("../../database");
 
 module.exports = (req, res) => {
+  const products = loadData()
   const { id } = req.params;
   const { title, price, description, chef, section, available } = req.body;
 
-  // const productFind = products.find(p => p.id === +id)
-
-  /* const productEdit = {
-    id: +id,
-    title: title ? title.trim() : productFind.title,
-    price: price ? +price : productFind.price,
-    description: description ? description.trim() : productFind.description,
-    chef: chef ? chef.trim() : productFind.chef,
-    sale: section === "sale",
-    newest: section === "newest",
-    free: section === "free",
-    available: available ? available : productFind.available
-  } */
+  let newImages = []
+  if(req.files.imagesSecondary?.length) {
+    newImages = req.files.imagesSecondary?.map(img => img.filename)
+  }
 
   const productsMap = products.map((p) => {
     if (p.id === +id) {
@@ -27,10 +18,13 @@ module.exports = (req, res) => {
         price: +price,
         description: description.trim(),
         chef: chef.trim(),
+        imagePrincipal: req.files.imagePrincipal?.length ? req.files.imagePrincipal[0]?.filename : p.imagePrincipal,
+        imagesSecondary: newImages.length ? newImages : p.imagesSecondary,
         sale: section === "sale",
         newest: section === "newest",
         free: section === "free",
         available: !!available,
+        image: req.file ? req.file.filename : p.image
       };
 
       return productEdit;

@@ -3,7 +3,7 @@
 <a href="/admin/productos" class="btn btn-primary mb-4">Volver al listado</a>
 
 <div class="card container p-4" style="width:60rem;">
-  <form action="/admin/editar-producto/<%= product.id %>?_method=PUT" method="POST" class="row justify-content-between">
+  <form action="/admin/editar-producto/<%= product.id %>?_method=PUT" method="POST" class="row justify-content-between" enctype="multipart/form-data">
 
     <div class="mb-3 col-6">
       <label class="form-label">Titulo</label>
@@ -64,9 +64,15 @@
       <label class="form-check-label" for="available">Disponible</label>
     </div>
 
-    <div class="mb-3 col-8">
-      <label for="image" class="form-label">Small file input example</label>
-      <input class="form-control form-control-sm" id="image" type="file" name="image">
+    <div class="mb-3 col-6">
+      <label for="image" class="form-label text-danger">Seleccionar la imagen principal</label>
+      <input class="form-control form-control-sm" id="image" type="file" name="imagePrincipal">
+    </div> 
+
+    <div class="mb-3 col-6"></div>
+    <div class="mb-3 col-6">
+      <label for="image" class="form-label text-danger">Seleccionar las imagenes secundarias</label>
+      <input class="form-control form-control-sm" id="image" type="file" name="imagesSecondary" multiple>
     </div>
 
     <button type="submit" class="mb-3 btn btn-success col-4">Editar Producto</button>

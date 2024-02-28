@@ -1,5 +1,7 @@
-const products = require("../../database/products.json")
+const { loadData } = require("../../database");
+
 module.exports = (req, res) => {
+  const products = loadData()
   res.render("admin/listProducts", { 
     products
    }, (err, content) => {

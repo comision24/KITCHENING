@@ -6,6 +6,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Imagen</th>
+            <th scope="col">Imagenes sec.</th>
             <th scope="col">Titulo</th>
             <th scope="col">Precio</th>
             <th scope="col">Descripción</th>
@@ -18,7 +19,13 @@
         
         <tr>
             <th scope="row"><%= p.id %></th>
-            <td><img class="img-product" src="/images/products/<%= p.image %>" alt=""></td>
+            <td><img class="img-product" src="/images/products/<%= p.imagePrincipal %>" alt=""></td>
+            <td>
+                <% p.imagesSecondary.forEach(img => { %>
+                    <img class="img-product" src="/images/products/<%= img %>" alt="" 
+                    style="width: 50px;height: 50px;object-fit: cover;">
+                <% }) %>
+            </td>
             <td><%= p.title %></td>
             <td><%= p.price %></td>
             <td><%= p.description %></td>
