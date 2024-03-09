@@ -4,14 +4,14 @@
       "title": "ABCD DE LA COCINA",
       "price": 9530,
       "description": "Tu comida puede transformarse en platos de restaurante de la mano de Guillermo Calabrese que te enseñará a combinar ingredientes simples con productos gourmet para darle un sabor distinto a tus recetas.",
-      "imagePrincipal": "abc.jpg",
+      "imagePrincipal": "imagePrincipal-1709943754480.png",
       "imagesSecondary": [
          "abc.jpg"
       ],
       "chef": "Guillermo Calabrese",
       "sale": false,
       "newest": false,
-      "free": false,
+      "free": true,
       "available": true
    },
    {
