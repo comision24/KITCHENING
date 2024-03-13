@@ -9,12 +9,17 @@ const saveData = (data, filenameJSON = "products") => {
 
 const loadData = (filenameJSON = "products") => {
   const pathJSON = path.join(__dirname, `./${filenameJSON}.json`);
-  const fileJSON = fs.readFileSync(pathJSON, "utf-8")
+
+  if (!fs.existsSync(pathJSON)) {
+    fs.writeFileSync(pathJSON, "[]", "utf-8");
+  }
+  
+  const fileJSON = fs.readFileSync(pathJSON, "utf-8");
   const JsonParser = JSON.parse(fileJSON);
-  return JsonParser
+  return JsonParser;
 };
 
 module.exports = {
   saveData,
-  loadData
+  loadData,
 };

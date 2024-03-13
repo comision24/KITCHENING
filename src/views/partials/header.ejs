@@ -15,10 +15,30 @@
   <nav class="main-nav" id="navigation">
     <ul>
       <li><a href="/">INICIO</a></li>
-      <li><a href="/admin/productos">ADMINISTRADOR</a></li>
+
+      <% if (locals.userLogin?.role === "ADMIN") { %>
+        <li><a href="/admin/productos">ADMINISTRADOR</a></li>
+      <% } else {%>
+        <li><a href="/sobre-nosotros">SOBRE NOSOTROS</a></li>
+      <% } %>
+
+
       <li><a href="/carrito-compra">CARRITO</a></li>
-      <li><a href="/autenticacion/iniciar">INICIAR SESIÓN</a></li>
-      <li><a href="/autenticacion/registrar">REGISTRO</a></li>
+
+      <% if (!locals.userLogin) { %>
+        <li><a href="/autenticacion/iniciar">INICIAR SESIÓN</a></li>
+        <li><a href="/autenticacion/registrar">REGISTRO</a></li>
+      <% } else { %>
+        <li><a href="/users/perfil">VER PERFIL</a></li>
+        <li class="text-white">
+          <%= locals.userLogin.role === "ADMIN" ? '🟡' : '🟢' %>
+           Hola <%= locals.userLogin.name %>
+        </li>
+           
+           <li class="text-white bg-danger">
+            <a href="/autenticacion/cerrar-sesion">Cerrar Sesión</a>
+          </li>
+      <% } %>
     </ul>
   </nav>
 </header>
