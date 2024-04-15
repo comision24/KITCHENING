@@ -1,12 +1,26 @@
-const { saveData, loadData } = require("../../database");
+const db = require("../../db/models")
 
 module.exports = (req, res) => {
-  const products = loadData()
   const {id} = req.params
 
-  const productLessOne = products.filter(p => p.id !== +id)
+  
+  
 
-  saveData(productLessOne);
+  db.ImageSecondary.destroy({
+    where:{
+      productId: id
+    }
+  })
+  .then(() => {
+    
+    db.Product.destroy({
+      where:{
+        id
+      }
+    })
+    .then(() => {
+      res.redirect("/admin/productos")
+    })
+  })
 
-  res.redirect("/admin/productos")
 };

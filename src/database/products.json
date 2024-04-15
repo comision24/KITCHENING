@@ -90,21 +90,6 @@
       "available": true
    },
    {
-      "id": 8,
-      "title": "PASTELERÍA DE MESA DULCE",
-      "price": 10530,
-      "description": "Si sos amante de lo dulce, Gustavo Nari te enseña paso a paso deliciosas recetas que no podés dejar de probar. Para paladares exquisitos que les gusta prepara una buena mesa disfrutando de lo mejor de la pastelería.",
-      "imagePrincipal": "pasteleriaAficionado1.jpg",
-      "imagesSecondary": [
-         "pasteleriaAficionado1.jpg"
-      ],
-      "chef": "Gustavo Nari",
-      "sale": true,
-      "newest": false,
-      "free": false,
-      "available": true
-   },
-   {
       "id": 9,
       "title": "PASTAS Y SALSAS",
       "price": 9720,

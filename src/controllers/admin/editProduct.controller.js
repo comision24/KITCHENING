@@ -1,57 +1,98 @@
 const { validationResult } = require("express-validator");
-const { saveData, loadData } = require("../../database");
+const db = require("../../db/models");
 
 module.exports = (req, res) => {
   const errors = validationResult(req);
   const { id } = req.params;
-  const products = loadData();
 
   if (errors.isEmpty()) {
-    const { title, price, description, chef, section, available } = req.body;
+    const {
+      title,
+      price,
+      description,
+      chef,
+      section,
+      available,
+      rememberImagesSecondary,
+    } = req.body;
 
-    let newImages = [];
-    if (req.files.imagesSecondary?.length) {
-      newImages = req.files.imagesSecondary?.map((img) => img.filename);
-    }
 
-    const productsMap = products.map((p) => {
-      if (p.id === +id) {
-        const productEdit = {
-          ...p,
+
+    db.ImageSecondary.findAll({
+      productId: id,
+    }).then((images) => {
+      let newImages = [];
+
+      if (req.files.imagesSecondary?.length) {
+        newImages = req.files.imagesSecondary?.map((img) => {
+          return {
+            file: img.filename,
+            productId: +id,
+          };
+        });
+      }
+
+      if (rememberImagesSecondary === "on") {
+        const imagesFormat = images.map((img) => {
+          return {
+            file: img.file,
+            productId: img.productId
+          }
+        })
+        newImages = [...newImages, ...imagesFormat];
+      }
+
+      db.Product.update(
+        {
           title: title.trim(),
           price: +price,
           description: description.trim(),
-          chef: chef.trim(),
-          imagePrincipal: req.files.imagePrincipal?.length
-            ? req.files.imagePrincipal[0]?.filename
-            : p.imagePrincipal,
-          imagesSecondary: newImages.length ? newImages : p.imagesSecondary,
+          chefId: +chef,
+          imagePrincipal:
+            req.files.imagePrincipal?.length &&
+            req.files.imagePrincipal[0].filename,
           sale: section === "sale",
           newest: section === "newest",
           free: section === "free",
           available: !!available,
-          image: req.file ? req.file.filename : p.image,
-        };
+        },
+        {
+          where: {
+            id,
+          },
+        }
+      )
+        .then(() => {
+          // primero resuelvo la actualización del producto
 
-        return productEdit;
-      }
+         
 
-      return p;
+          db.ImageSecondary.destroy({ // borramos las imágenes viejas!
+            where: {
+              productId: +id,
+            },
+          }).then(() => {
+            db.ImageSecondary.bulkCreate(newImages).then(() => {  // creamos las nuevas
+              res.redirect("/admin/productos");
+            });
+          });
+        })
+        .catch((err) => res.send(err.message));
     });
-
-    saveData(productsMap);
-    res.redirect("/admin/productos");
   } else {
-    const chefs = loadData("chefs");
-    const product = products.find((p) => p.id === +id);
     const errorsMapped = errors.mapped();
-    res.render(
-      "admin/updateProduct",
-      { product, chefs, errors: errorsMapped, old: req.body },
-      (err, contentView) => {
-        err && res.send(err.message);
-        res.render("partials/dashboard", { contentView });
-      }
-    );
+    const productPromise = db.Product.findByPk(id);
+    const chefsPromise = db.Chef.findAll();
+
+    Promise.all([productPromise, chefsPromise]).then(([product, chefs]) => {
+      res.render(
+        "admin/updateProduct",
+        { product, chefs, errors: errorsMapped, old: req.body },
+        (err, contentView) => {
+          err && res.send(err.message);
+          res.render("partials/dashboard", { contentView });
+        }
+      );
+    });
   }
 };

@@ -3,8 +3,11 @@ const db = require("../../db/models")
 module.exports = (req, res) => {
   // const products = loadData()
 
-  db.Product.findAll()
+  db.Product.findAll({
+    include: ["imagesSecondary"]
+  })
   .then((products)=> {
+
     res.render("admin/listProducts", { 
       products
      }, (err, content) => {

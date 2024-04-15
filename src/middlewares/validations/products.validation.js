@@ -20,9 +20,9 @@ const fieldPrice = check("price")
   .isNumeric()
   .withMessage("El precio debe ser numerico")
   .bail()
-  .isInt({ min: 0 })
-  .withMessage("El precio debe tener un valor positivo")
-  .bail()
+  // .isInt({ min: 0 })
+  // .withMessage("El precio debe tener un valor positivo")
+  // .bail()
   .isDecimal()
   .withMessage("El precio debe ser decimal");
 
@@ -142,11 +142,11 @@ module.exports = {
   productsValidationStore: [
     ...defaultValidationFiels,
     fieldImagePrincipalStore,
-    // fieldImagesSecondaryStore,
+    fieldImagesSecondaryStore,
   ],
   productsValidationUpdate: [
     ...defaultValidationFiels,
     fieldImagePrincipalUpdate,
-    fieldImagesSecondaryUpdate,
+    // fieldImagesSecondaryUpdate,
   ],
 };
