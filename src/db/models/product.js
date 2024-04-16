@@ -32,6 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Product", /* products */
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE"
     }
   );
   return Product;

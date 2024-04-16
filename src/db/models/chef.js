@@ -15,8 +15,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Chef.init({
     name: DataTypes.STRING,
-    image: DataTypes.STRING,
-    foodFavorite: DataTypes.INTEGER
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Chef',

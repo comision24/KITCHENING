@@ -22,7 +22,15 @@ module.exports = {
         type: Sequelize.STRING
       },
       chefId: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        references : {
+          model: {
+            tableName : "chefs"
+          },
+          key: "id"
+        },
+        onDelete: "CASCADE",
+        onUpdate: "CASCADE"
       },
       sale: {
         type: Sequelize.BOOLEAN
@@ -38,10 +46,15 @@ module.exports = {
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
         allowNull: false,
+        type: Sequelize.DATE,
+        defaultValue: new Date()
+      },
+      deletedAt:{
         type: Sequelize.DATE
       }
     });

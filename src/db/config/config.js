@@ -2,7 +2,7 @@ module.exports = {
   development: {
     username: "root",
     password: "3467",
-    database: "kitchening",
+    database: "kitchening_c24",
     host: "127.0.0.1",
     dialect: "mysql",
   },
