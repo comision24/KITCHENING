@@ -1,37 +1,49 @@
 [
-   {
-      "id": 1,
-      "name": "Emanuel",
-      "surname": "Arroyo",
-      "email": "ema@gmail.com",
-      "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
-      "avatar": "",
-      "role":"ADMIN",
-      "direccion": [{
-         "address": "",
-         "city": "",
-         "province": "",
-         "cp": "",
-         "num": "",
-         "country": "",
-         "userId": 1
-      }]
-   },
-   {
-      "id": 2,
-      "name": "Gaston",
-      "surname": "Castillo",
-      "email": "gaston@gmail.com",
-      "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
-      "avatar": "",
-      "role": "REGULAR",
-      "direccion": {
-         "address": "",
-         "city": "",
-         "province": "",
-         "cp": "",
-         "num": "",
-         "country": ""
+  {
+    "id": 1,
+    "name": "Emanuel",
+    "surname": "Arroyo",
+    "email": "ema@gmail.com",
+    "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
+    "avatar": "",
+    "role": "ADMIN",
+    "direccion": [
+      {
+        "address": "Letonia",
+        "city": "San Miguel",
+        "province": "Buenos Aires",
+        "cp": "1663",
+        "num": "123",
+        "country": "Argentina",
+        "default": true
+      },
+      {
+        "address": "Garcia Lorca",
+        "city": "Jose C Paz",
+        "province": "Buenos Aires",
+        "cp": "1665",
+        "num": "456",
+        "country": "Argentina",
+        "default": false
       }
-   }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Gaston",
+    "surname": "Castillo",
+    "email": "gaston@gmail.com",
+    "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
+    "avatar": "",
+    "role": "REGULAR",
+    "direccion": {
+      "address": "Dorrego",
+      "city": "San Miguel",
+      "province": "Buenos Aires",
+      "cp": "1663",
+      "num": "567",
+      "country": "Argentina",
+      "default": true
+    }
+  }
 ]

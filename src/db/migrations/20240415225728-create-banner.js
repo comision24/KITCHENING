@@ -1,32 +1,38 @@
-'use strict';
+"use strict";
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Banners', {
+    await queryInterface.createTable("Banners", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
-      view: {
-        type: Sequelize.STRING
+      viewId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: {
+            tableName: "views",
+          },
+          key: "id",
+        },
       },
       file: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       title: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       subtitle: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
       },
       paragraph: {
-        type: Sequelize.STRING
-      }
+        type: Sequelize.STRING,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Banners');
-  }
+    await queryInterface.dropTable("Banners");
+  },
 };

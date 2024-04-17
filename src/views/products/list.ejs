@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include("../partials/head") %>
+
+  <body class="home-body">
+    <div class="contain-dots" id="contain-dots">
+      <div class="dot-spin"></div>
+    </div>
+
+    <%- include("../partials/header") %>
+
+      <main class="list-products row justify-content-center gap-4">
+        
+        <nav aria-label="Page navigation example" class="col-12 d-flex justify-content-center mt-5">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Previous">
+                <span aria-hidden="true">&laquo;</span>
+              </a>
+            </li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="#" aria-label="Next">
+                <span aria-hidden="true">&raquo;</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <% products.forEach(p => { %>
+         
+          <div class="card border-3 shadow col-2 d-flex flex-column justify-content-between">
+            <img src="/images/products/<%= p.imagePrincipal %>" class="card-img-top" style="height: 250px;object-fit: cover;margin-top: 10px;border:1px solid rgb(215, 215, 215)" alt="img-principal">
+            <div class="card-body d-flex flex-column justify-content-between">
+              <h5 class="card-title"><%= p.title %></h5>
+              <p class="card-text text-success">$<%= p.price %></p>
+              <a href="/productos/detalle/<%= p.id %>" class="btn btn-primary">Ver más</a>
+            </div>
+          </div>
+
+        <% }) %>
+        
+      </main>
+
+      <%- include("../partials/footer") %>
+
+        <%- include("../partials/scripts") %>
+  </body>
+
+</html>

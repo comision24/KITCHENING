@@ -1,5 +1,11 @@
 const db = require("../../db/models");
-const { Op } = db.Sequelize;
 
 module.exports = (req, res) => {
+  db.Product.findAll({
+    where: {
+      available: true,
+    },
+  }).then((products) => {
+    res.render("products/list", { products });
+  });
 };
