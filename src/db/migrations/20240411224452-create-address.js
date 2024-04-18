@@ -11,6 +11,7 @@ module.exports = {
       },
       active: {
         type: Sequelize.BOOLEAN,
+        defaultValue: false
       },
       street: {
         type: Sequelize.STRING,
@@ -42,10 +43,12 @@ module.exports = {
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
+        defaultValue: new Date()
       },
     });
   },

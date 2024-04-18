@@ -7,9 +7,9 @@
     "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
     "avatar": "",
     "role": "ADMIN",
-    "direccion": [
+    "addresses": [
       {
-        "address": "Letonia",
+        "street": "Letonia",
         "city": "San Miguel",
         "province": "Buenos Aires",
         "cp": "1663",
@@ -18,7 +18,7 @@
         "default": true
       },
       {
-        "address": "Garcia Lorca",
+        "street": "Garcia Lorca",
         "city": "Jose C Paz",
         "province": "Buenos Aires",
         "cp": "1665",
@@ -36,14 +36,14 @@
     "password": "$2a$10$/WAk9g1yqCehbvEh/8XXf.kmlYp8ws.NI9uQPmhrwKZCRE.5ZqP9.",
     "avatar": "",
     "role": "REGULAR",
-    "direccion": {
-      "address": "Dorrego",
+    "addresses": [{
+      "street": "Dorrego",
       "city": "San Miguel",
       "province": "Buenos Aires",
       "cp": "1663",
       "num": "567",
       "country": "Argentina",
       "default": true
-    }
+    }]
   }
 ]

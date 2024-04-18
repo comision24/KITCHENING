@@ -15,6 +15,11 @@ module.exports = (sequelize, DataTypes) => {
         as: "imagesSecondary",
       })
 
+      Product.belongsTo(models.Chef, {
+        foreignKey: "chefId",
+        as: "chef"
+      })
+
     }
   }
   Product.init(

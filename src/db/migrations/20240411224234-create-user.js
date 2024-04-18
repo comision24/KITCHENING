@@ -22,18 +22,28 @@ module.exports = {
         type: Sequelize.STRING
       },
       avatar: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        defaultValue: "default-img.jpg"
       },
-      role: {
-        type: Sequelize.STRING
+      roleId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model:{
+            tableName: "roles"
+          },
+          key: "id"
+        },
+        defaultValue: 1
       },
       createdAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       },
       updatedAt: {
         allowNull: false,
-        type: Sequelize.DATE
+        type: Sequelize.DATE,
+        defaultValue: new Date()
       }
     });
   },

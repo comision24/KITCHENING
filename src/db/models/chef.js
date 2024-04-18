@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Chef.hasMany(models.Product, {
+        foreignKey: "chefId",
+        as: "products" 
+      })
+
     }
   }
   Chef.init({
