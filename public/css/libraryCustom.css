@@ -1,0 +1,23 @@
+.btn-danger-custom {
+  background-color: var(--red);
+}
+
+.btn-danger-custom:hover {
+  background-color: rgb(184, 2, 2);
+}
+
+/* -------------------------------- */
+
+.btn-dark-custom {
+  background-color: var(--gray);
+}
+
+.btn-dark-custom:hover {
+  background-color: rgb(75, 75, 75);
+}
+
+/* -------------------------------- */
+
+.pagination-danger-custom *{
+  color: var(--red) !important;
+}

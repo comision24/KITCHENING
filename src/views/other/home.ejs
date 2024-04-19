@@ -27,13 +27,16 @@
                  
                   <!-- PRODUCTO 1 -->
                   <div>
-                    <div class="card mx-2">
-                      <img src="/images/products/<%= p.imagePrincipal %>" class="card-img-top" alt="img1"
-                        style="height: 150px;object-fit: cover;">
+                    <div class="card mx-2 h-100 d-flex flex-column justify-content-between">
+                      <div class="slider-img-container">
+                        <img src="/images/products/<%= p.imagePrincipal %>" class="card-img-top slider-img-product" alt="img1">
+                      </div>
                       <div class="card-body">
                         <h5 class="card-title"><%= p.title %></h5>
                         <p class="card-text"><%= p.description %></p>
-                        <a href="/productos/detalle/<%= p.id %>" class="btn btn-dark">Ver más</a>
+                      </div>
+                      <div class="m-3">
+                        <a href="/productos/detalle/<%= p.id %>" class="btn btn-danger btn-danger-custom align-self-start w-50">Ver más</a>
                       </div>
                     </div>
                   </div>

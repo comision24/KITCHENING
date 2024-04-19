@@ -34,7 +34,7 @@ main.home .vip-products .product .photo-container img.sticker {
 
 main.home .vip-products .product .photo-container a.zoom {
     display: block;
-    background-color: rgba(0,0,0,.5);
+    background-color: rgba(0, 0, 0, .5);
     position: absolute;
     top: 50%;
     width: 100%;
@@ -60,71 +60,86 @@ main.home .carousel-inner {
     height: 300px;
 }
 
+main.home .slider-img-container {
+    overflow: hidden;
+}
+
+main.home .slider-img-product {
+    animation: zoomImg 150s alternate infinite;
+    height: 250px;
+    object-fit: cover;
+}
+
+
+
 
 /* Tablet */
-@media (min-width: 426px) {  
+@media (min-width: 426px) {
 
     body.home-body {}
-    
+
     main.home {}
-    
+
     main.home section.banner {
-    display: block;
-}
-    
+        display: block;
+    }
+
     main.home section.banner img {
-    width: 100%;
-}
-    
+        width: 100%;
+    }
+
     main.home section.vip-products {}
-    
-    main.home section.vip-products article.product {display: inline-block;width: calc(50% - 2px);}
-    
+
+    main.home section.vip-products article.product {
+        display: inline-block;
+        width: calc(50% - 2px);
+    }
+
     main.home .vip-products .product .photo-container {}
-    
+
     main.home .vip-products .product .photo-container img.photo {}
-    
+
     main.home .vip-products .product .photo-container img.sticker {}
-    
+
     main.home .vip-products .product .photo-container a.zoom {}
-    
+
     main.home .vip-products .product h2 {}
-    
+
     main.home .vip-products .product p {}
-    
+
     main.home .vip-products .product a.more {}
-    
+
 }
 
 /* Desktop */
 @media (min-width:769px) {
     body.home-body {
-    margin: 5px 70px;
-}
-    
+        margin: 5px 70px;
+    }
+
     main.home {}
-    
+
     main.home section.banner {}
-    
+
     main.home section.banner img {}
-    
+
     main.home section.vip-products {}
-    
+
     main.home section.vip-products article.product {
-    width: calc(33.3% - 2.3px);
-}
-    
+        width: calc(33.3% - 2.3px);
+    }
+
     main.home .vip-products .product .photo-container {}
-    
+
     main.home .vip-products .product .photo-container img.photo {}
-    
+
     main.home .vip-products .product .photo-container img.sticker {}
-    
+
     main.home .vip-products .product .photo-container a.zoom {}
-    
+
     main.home .vip-products .product h2 {}
-    
+
     main.home .vip-products .product p {}
-    
+
     main.home .vip-products .product a.more {}
 }
