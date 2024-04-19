@@ -1,6 +1,6 @@
 <h1 class="text-center text-danger my-4">Listado de productos</h1>
 
-<a href="/admin/crear-producto" class="btn btn-primary mb-4">Crear Producto</a>
+<a href="/admin/crear-producto" class="btn btn-dark btn-dark-custom mb-4">Crear Producto</a>
 <table class="table table-list-products">
     <thead>
         <tr>
@@ -33,9 +33,9 @@
 
             <td>
                 <div class="btn-group" role="group">
-                    <a href="" class="btn btn-info d-inline-block">Info</a>
+                    <a href="" class="btn btn-dark btn-dark-custom d-inline-block">Info</a>
                     <a href="/admin/editar-producto/<%= p.id %>" class="btn btn-warning d-inline-block">Editar</a>
-                    <a href="/admin/eliminar-producto?id=<%= p.id %>&title=<%= p.title %>" class="btn btn-danger d-inline-block">Eliminar</a>
+                    <a href="/admin/eliminar-producto?id=<%= p.id %>&title=<%= p.title %>" class="btn btn-danger btn-danger-custom d-inline-block">Eliminar</a>
                 </div>
 
             </td>
