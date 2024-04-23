@@ -1,4 +1,5 @@
 "use strict";
+const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
@@ -25,7 +26,12 @@ module.exports = (sequelize, DataTypes) => {
   Product.init(
     {
       title: DataTypes.STRING,
-      price: DataTypes.DECIMAL,
+      price: {
+        type: DataTypes.DECIMAL,
+        get() {
+          return toThousand(this.getDataValue("price"))
+        }
+      },
       description: DataTypes.TEXT,
       imagePrincipal: DataTypes.STRING,
       chefId: DataTypes.INTEGER,

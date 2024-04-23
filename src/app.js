@@ -11,11 +11,19 @@ const checkSession = require("./middlewares/checkSession");
 const checkCookie = require("./middlewares/checkCookie");
 
 /* RUTAS */
+/* MVC */
 const authRoutes = require("./routes/authentication.routes");
 const cartRoutes = require("./routes/cart.routes");
 const otherRoutes = require("./routes/other.routes");
 const productRoutes = require("./routes/products.routes");
 const adminRoutes = require("./routes/admin.routes");
+
+/* API */
+const apiOtherRoutes = require("./routes/api/other.api")
+const apiProductRoutes = require("./routes/api/products.api")
+const apiAuthRoutes = require("./routes/api/authentication.api")
+const apiCartRoutes = require("./routes/api/cart.api")
+const apiAdminRoutes = require("./routes/api/admin.api")
 
 var app = express();
 
@@ -44,6 +52,13 @@ app.use("/autenticacion", authRoutes);
 app.use("/carrito-compra", cartRoutes);
 app.use("/productos", productRoutes);
 app.use("/admin", adminRoutes);
+
+app.use("/api", apiOtherRoutes);
+app.use("/api/autenticacion", apiAuthRoutes);
+app.use("/api/carrito-compra", apiCartRoutes);
+app.use("/api/productos", apiProductRoutes);
+app.use("/api/admin", apiAdminRoutes);
+
 app.use((req, res, next) => {
   res.status(404).render("other/notFound");
 });

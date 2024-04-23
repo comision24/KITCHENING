@@ -33,7 +33,8 @@
         <li><a href="/autenticacion/iniciar">INICIAR SESIÓN</a></li>
         <li><a href="/autenticacion/registrar">REGISTRO</a></li>
       <% } else { %>
-        <li><a href="/users/perfil">VER PERFIL</a></li>
+        <!-- <li><a href="/users/perfil">VER PERFIL</a></li> -->
+        <li><a href="/autenticacion/eliminar">BORRAR MI USER</a></li>
         <li class="text-white">
           <%= locals.userLogin.role === "ADMIN" ? '🟡' : '🟢' %>
            Hola <%= locals.userLogin.name %>

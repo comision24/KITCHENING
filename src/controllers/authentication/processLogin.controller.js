@@ -18,11 +18,12 @@ module.exports = (req, res) => {
   
     if (!user) res.send("El usuario no existe");
 
-    const isPasswordValid = bcrypt.compareSync(password, user.password);
+    const isPasswordValid = bcrypt.compareSync(password, user?.password);
 
     if (!isPasswordValid) res.send("El password es incorrecto");
 
     req.session.userLogin = {
+      id: user.id,
       name: user.name,
       surname: user.surname,
       avatar: user.avatar,

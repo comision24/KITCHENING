@@ -6,6 +6,7 @@ const {
   register,
   processRegister,
   logout,
+  userDelete,
 } = require("../controllers/authentication");
 
 // app.js --> "/autenticacion"
@@ -20,5 +21,7 @@ router.get("/registrar", register);
 router.post("/registrar", processRegister);
 
 router.get("/cerrar-sesion", logout)
+
+router.get("/eliminar", userDelete)
 
 module.exports = router;

@@ -1,10 +1,9 @@
-const { loadData, saveData } = require("../../database");
-const bcrypt = require("bcryptjs");
 const db = require("../../db/models");
 
 module.exports = (req, res) => {
   const { name, surname, email, password } = req.body;
 
+  /* 
   db.User.create({
     name: name ? name.trim() : null,
     surname: surname ? surname.trim() : null,
@@ -21,7 +20,23 @@ module.exports = (req, res) => {
       res.redirect("/");
 
     })
+  }); 
+  */
 
+  db.User.create({
+    name: name ? name.trim() : null,
+    surname: surname ? surname.trim() : null,
+    email: email ? email.trim() : null,
+    password: password ? password : null,
+    addresses: [
+      {
+        active: true,
+      },
+    ],
+  },{
+    include: ["addresses"]
+  }).then((user) => {
+    res.redirect("/");
   });
 
 };
