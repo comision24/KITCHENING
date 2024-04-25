@@ -47,16 +47,20 @@ app.use(checkCookie);
 app.use(checkSession);
 
 /* ENRUTADORES */
+
+// Los que se visualizan en el navegador van en español
 app.use("/", otherRoutes);
 app.use("/autenticacion", authRoutes);
 app.use("/carrito-compra", cartRoutes);
 app.use("/productos", productRoutes);
 app.use("/admin", adminRoutes);
 
+
+// Los que interactúan con otro programador van en ingles
 app.use("/api", apiOtherRoutes);
-app.use("/api/autenticacion", apiAuthRoutes);
-app.use("/api/carrito-compra", apiCartRoutes);
-app.use("/api/productos", apiProductRoutes);
+app.use("/api/authentication", apiAuthRoutes);
+app.use("/api/cart", apiCartRoutes);
+app.use("/api/products", apiProductRoutes);
 app.use("/api/admin", apiAdminRoutes);
 
 app.use((req, res, next) => {

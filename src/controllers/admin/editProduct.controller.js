@@ -16,8 +16,6 @@ module.exports = (req, res) => {
       rememberImagesSecondary,
     } = req.body;
 
-
-
     db.ImageSecondary.findAll({
       productId: id,
     }).then((images) => {
@@ -64,8 +62,6 @@ module.exports = (req, res) => {
       )
         .then(() => {
           // primero resuelvo la actualización del producto
-
-         
 
           db.ImageSecondary.destroy({ // borramos las imágenes viejas!
             where: {

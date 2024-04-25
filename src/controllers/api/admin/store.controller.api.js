@@ -1,8 +1,7 @@
 const db = require("../../../db/models");
 
 module.exports = (req, res) => {
-  const { title, price, description, chef, section, available } = req.body;
-
+  const { title, price, description, chefId, section, available } = req.body;
   let newImages = [];
   if (req.files.imagesSecondary?.length) {
     newImages = req.files.imagesSecondary?.map((img) => {
@@ -12,8 +11,6 @@ module.exports = (req, res) => {
     });
   }
 
-  // [{ file: "data.png" },{ file: "data2.png" },{ file: "data3.png" }]
-
   db.Product.create({
     title: title.trim(),
     price: +price,
@@ -21,18 +18,22 @@ module.exports = (req, res) => {
     imagePrincipal: req.files.imagePrincipal?.length
       ? req.files.imagePrincipal[0]?.filename
       : "not-image.png",
-    chefId: +chef,
+    chefId: +chefId,
     sale: section === "sale",
     newest: section === "newest",
     free: section === "free",
     available: available === "on",
     imagesSecondary: newImages,
+  },{
+    include: ["imagesSecondary"]
   })
     .then(() => {
+
       res.status(201).json({
         ok: true,
         msg: "Producto creado con éxito",
       });
+      
     })
     .catch((err) => {
       res.status(500).json({

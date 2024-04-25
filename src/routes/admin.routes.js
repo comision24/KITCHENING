@@ -32,4 +32,7 @@ router.put(
 router.get("/eliminar-producto", adminController.deleteProduct);
 router.delete("/eliminar-producto/:id", adminController.removeProduct);
 
+router.get("/usuarios",adminController.listUsers)
+router.get("/chefs",adminController.listChefs)
+
 module.exports = router;
