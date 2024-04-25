@@ -19,15 +19,13 @@
       <!-- despues quitar -->
       <!-- <li><a href="/admin/productos">ADMINISTRADOR</a></li> -->
       
+      <li><a href="/productos">PRODUCTOS</a></li>
+      
       <% if (locals.userLogin?.role === "ADMIN") { %>
         <li><a href="/admin/productos">ADMINISTRADOR</a></li>
-      <% } else {%>
-        <li><a href="/sobre-nosotros">SOBRE NOSOTROS</a></li>
       <% } %>
+       
 
-
-      <li><a href="/carrito-compra">CARRITO</a></li>
-      <li><a href="/productos">PRODUCTOS</a></li>
 
       <% if (!locals.userLogin) { %>
         <li><a href="/autenticacion/iniciar">INICIAR SESIÓN</a></li>
@@ -40,9 +38,13 @@
            Hola <%= locals.userLogin.name %>
         </li>
            
+        <li><a href="/carrito-compra">CARRITO</a></li>
+        <li><a href="/usuario/perfil">MI PERFIL</a></li>
+
            <li class="text-white bg-danger">
             <a href="/autenticacion/cerrar-sesion">Cerrar Sesión</a>
           </li>
+
       <% } %>
     </ul>
   </nav>

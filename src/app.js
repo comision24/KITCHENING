@@ -17,6 +17,7 @@ const cartRoutes = require("./routes/cart.routes");
 const otherRoutes = require("./routes/other.routes");
 const productRoutes = require("./routes/products.routes");
 const adminRoutes = require("./routes/admin.routes");
+const userRoutes = require("./routes/users.routes");
 
 /* API */
 const apiOtherRoutes = require("./routes/api/other.api")
@@ -54,6 +55,7 @@ app.use("/autenticacion", authRoutes);
 app.use("/carrito-compra", cartRoutes);
 app.use("/productos", productRoutes);
 app.use("/admin", adminRoutes);
+app.use("/usuario", userRoutes);
 
 
 // Los que interactúan con otro programador van en ingles
