@@ -7,5 +7,6 @@ module.exports = {
   deleteProduct: require("./deleteProduct.controller"),
   removeProduct: require("./removeProduct.controller"),
   listUsers: require("./listUsers.controller"),
-  listChefs: require("./listChefs.controller")
+  listChefs: require("./listChefs.controller"),
+  listOrders: require("./listOrders.controller")
 };

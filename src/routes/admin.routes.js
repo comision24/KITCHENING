@@ -34,5 +34,6 @@ router.delete("/eliminar-producto/:id", adminController.removeProduct);
 
 router.get("/usuarios",adminController.listUsers)
 router.get("/chefs",adminController.listChefs)
+router.get("/ordenes",adminController.listOrders)
 
 module.exports = router;
