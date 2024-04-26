@@ -12,15 +12,15 @@
   <%- include("../partials/header") %>
 
   <main class="container my-5 row justify-content-center mx-auto">
-    <form action="/usuario/perfil?_method=PUT" method="post" class="row p-4 col-12 col-md-6 col-lg-4" style="width: 700px;">
+    <form action="/usuario/perfil?_method=PUT" method="post" class="row p-4 col-12 col-md-6 col-lg-4 justify-content-center" style="width: 700px;" enctype="multipart/form-data">
       
       <h2 class="cart-title col-12">Perfil de usuario</h2>
       <hr>
 
       <div class="d-flex flex-column mb-3 container-input col-12">
-        <div class="my-3 mx-auto" style="width: 100px; height: 100px;object-fit: contain;">
-          <!-- <img src="/images/users/<%# user.avatar %>" alt="avatar" > -->
-          <img class="img-fluid" src="/images/users/default-img.jpg" alt="avatar">
+        <div class="my-3 mx-auto" style="width: 200px; height: 200px;object-fit: contain;clip-path: circle();">
+          <img src="/images/users/<%= user.avatar %>" alt="avatar" class="img-fluid">
+          <!-- <img class="img-fluid" src="/images/users/default-img.jpg" alt="avatar"> -->
         </div>
         <label class="" for="nombre">Avatar</label>
         <input class="form-control form-control-sm" type="file" accept="image/*" name="avatar" id="nombre">
@@ -89,11 +89,12 @@
  
 
       <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-4">
-        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="btn btn-sm btn-dark btn-dark-custom" type="reset">Salir</button>
+        <a href="/usuario/direcciones" class="btn btn-sm btn-primary">Mis Direcciones</a>
+        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
           Borrar mi usuario
         </button>
-        <button class="btn btn-sm btn-success" type="submit">Guardar</button>
-        <button class="btn btn-sm btn-dark btn-dark-custom" type="reset">Salir</button>
+        <button class="btn btn-sm btn-success" type="submit">Actualizar</button>
       </div>
     </form>
 
