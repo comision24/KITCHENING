@@ -32,15 +32,15 @@
         <li><a href="/autenticacion/registrar">REGISTRO</a></li>
       <% } else { %>
         <!-- <li><a href="/users/perfil">VER PERFIL</a></li> -->
-        <li><a href="/autenticacion/eliminar">BORRAR MI USER</a></li>
+        
+        
+        <li><a href="/carrito-compra">CARRITO</a></li>
+        <li><a href="/usuario/perfil">MI PERFIL</a></li>
         <li class="text-white">
           <%= locals.userLogin.role === "ADMIN" ? '🟡' : '🟢' %>
            Hola <%= locals.userLogin.name %>
         </li>
-           
-        <li><a href="/carrito-compra">CARRITO</a></li>
-        <li><a href="/usuario/perfil">MI PERFIL</a></li>
-
+        
            <li class="text-white bg-danger">
             <a href="/autenticacion/cerrar-sesion">Cerrar Sesión</a>
           </li>

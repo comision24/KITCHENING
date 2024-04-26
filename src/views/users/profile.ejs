@@ -89,10 +89,38 @@
  
 
       <div class="d-flex justify-content-center justify-content-lg-end gap-2 mt-4">
-        <button class="btn btn-sm btn-dark" type="submit">Guardar</button>
-        <button class="btn btn-sm btn-custom-danger" type="reset">Salir</button>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Borrar mi usuario
+        </button>
+        <button class="btn btn-sm btn-success" type="submit">Guardar</button>
+        <button class="btn btn-sm btn-dark btn-dark-custom" type="reset">Salir</button>
       </div>
     </form>
+
+
+    <!-- MODAL -->
+    <!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Estas seguro de eliminar tu cuenta?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <!-- <div class="modal-body">
+        
+      </div> -->
+      <form action="/usuario/eliminar?_method=DELETE" method="post" class="modal-footer">
+        <button type="button" class="btn btn-dark btn-dark-custom" data-bs-dismiss="modal">Cancelar</button>
+        <button type="submit" class="btn btn-danger btn-danger-custom">Confirmar</button>
+      </form>
+    </div>
+  </div>
+</div>
+
   </main>
 
   <%- include("../partials/footer") %>
