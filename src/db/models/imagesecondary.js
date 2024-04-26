@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     sequelize,
     modelName: 'ImageSecondary',
-    timestamps: false
+    timestamps: false,
+    onDelete: "CASCADE"
   });
   return ImageSecondary;
 };

@@ -6,7 +6,7 @@ module.exports = (req, res) => {
     title,
     price,
     description,
-    chef,
+    chefId,
     section,
     available,
     rememberImagesSecondary,
@@ -14,10 +14,10 @@ module.exports = (req, res) => {
 
   db.Product.update(
     {
-      title: title.trim(),
+      title: title?.trim(),
       price: +price,
-      description: description.trim(),
-      chefId: +chef,
+      description: description?.trim(),
+      chefId: +chefId,
       imagePrincipal:
         req.files.imagePrincipal?.length &&
         req.files.imagePrincipal[0].filename,
@@ -56,12 +56,10 @@ module.exports = (req, res) => {
         });
       }
       db.ImageSecondary.bulkCreate(newImages).then(() => {
-       
         res.status(200).json({
           ok: true,
           msg: "Producto actualizado con éxito",
         });
-
       });
 
       /*  if (rememberImagesSecondary === "on" && newImages.length) {
@@ -75,7 +73,6 @@ module.exports = (req, res) => {
           db.ImageSecondary.bulkCreate(newImages);
         });
       } */
-      
     });
   });
 };

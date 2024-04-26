@@ -29,8 +29,8 @@ module.exports = {
           },
           key: "id"
         },
-/*         onDelete: "CASCADE",
-        onUpdate: "CASCADE" */
+      onDelete: "CASCADE",
+      onUpdate: "CASCADE"
       },
       sale: {
         type: Sequelize.BOOLEAN

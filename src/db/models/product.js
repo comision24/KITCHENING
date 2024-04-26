@@ -42,8 +42,9 @@ module.exports = (sequelize, DataTypes) => {
     },
     {
       sequelize,
-      modelName: "Product" /* products */
-
+      modelName: "Product", /* products */
+      onDelete: "CASCADE",
+      paranoid: true
     }
   );
   return Product;

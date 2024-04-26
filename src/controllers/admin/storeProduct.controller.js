@@ -11,7 +11,7 @@ module.exports = (req, res) => {
   const errors = validationResult(req);
 
   if (errors.isEmpty()) {
-    const { title, price, description, chef, section, available } = req.body;
+    const { title, price, description, chefId, section, available } = req.body;
 
     db.Product.create({
       title: title.trim(),
@@ -20,7 +20,7 @@ module.exports = (req, res) => {
       imagePrincipal: req.files.imagePrincipal?.length
         ? req.files.imagePrincipal[0]?.filename
         : "not-image.png",
-      chefId: +chef,
+      chefId: +chefId,
       sale: section === "sale",
       newest: section === "newest",
       free: section === "free",
