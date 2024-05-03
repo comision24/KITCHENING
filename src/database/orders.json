@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "state": "pending",
+    "state": "completed",
     "total": 40500,
     "user": "gaston@gmail.com",
     "products": [
