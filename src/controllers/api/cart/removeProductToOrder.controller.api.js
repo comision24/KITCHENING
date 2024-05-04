@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const db = require("../../../db/models");
 const { getOrderPending } = require("../../utils");
+const getTotalOrder = require("../../utils/getTotalOrder");
 
 module.exports = async (req, res) => {
   try {
@@ -8,7 +9,7 @@ module.exports = async (req, res) => {
 
     if (!productId) throw new Error("El id no fue recibido");
 
-    const [order, isCreate] = await getOrderPending(req);
+    let [order, isCreate] = await getOrderPending(req);
 
     await db.OrderProduct.destroy({
       where: {
@@ -16,6 +17,21 @@ module.exports = async (req, res) => {
         productId,
       },
     });
+
+    order = await order.reload({
+      include: [
+        {
+          association: "products",
+          through: {
+            attributes: ["quantity"],
+          },
+        },
+      ],
+    });
+    const total = getTotalOrder(order.products);
+    
+    order.total = total;
+    await order.save();
 
     res.status(200).json({
       ok: true,

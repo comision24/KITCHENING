@@ -20,5 +20,5 @@ module.exports = async (req, res) => {
       msg: err.message,
     });
   }
-  // res.status(200).json({ ok: true, msg: "ok" });
+
 };

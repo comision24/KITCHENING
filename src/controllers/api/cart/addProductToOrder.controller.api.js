@@ -1,6 +1,7 @@
 const { Op } = require("sequelize");
 const db = require("../../../db/models");
 const { getOrderPending } = require("../../utils");
+const getTotalOrder = require("../../utils/getTotalOrder");
 
 module.exports = async (req, res) => {
   try {
@@ -26,18 +27,8 @@ module.exports = async (req, res) => {
       ],
     });
 
-    let total = 0;
-    order = order.products.forEach(
-      ({
-        price,
-        orderproducts: {
-          dataValues: { quantity },
-        },
-      }) => {
-        const priceTotalProduct = price * quantity;
-        total += priceTotalProduct;
-      }
-    );
+    const total = getTotalOrder(order.products);
+    
     order.total = total;
     await order.save();
 

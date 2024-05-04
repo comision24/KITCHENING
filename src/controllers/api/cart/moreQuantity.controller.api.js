@@ -1,11 +1,12 @@
 const { Op } = require("sequelize");
 const db = require("../../../db/models");
 const { getOrderPending } = require("../../utils");
+const getTotalOrder = require("../../utils/getTotalOrder");
 
 module.exports = async (req, res) => {
   try {
     const { id } = req.params;
-    const [order, isCreate] = await getOrderPending(req);
+    let [order, isCreate] = await getOrderPending(req);
 
     const record = await db.OrderProduct.findOne({
       where: {
@@ -21,8 +22,22 @@ module.exports = async (req, res) => {
     });
 
     record.quantity++;
-
     await record.save();
+
+    order = await order.reload({
+      include: [
+        {
+          association: "products",
+          through: {
+            attributes: ["quantity"],
+          },
+        },
+      ],
+    });
+    const total = getTotalOrder(order.products);
+    order.total = total;
+
+    await order.save();
 
     res.status(200).json({
       ok: true,
