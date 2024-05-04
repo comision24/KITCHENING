@@ -10,7 +10,7 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       total: {
-        type: Sequelize.DECIMAL,
+        type: Sequelize.INTEGER,
       },
       userId: {
         allowNull: false,

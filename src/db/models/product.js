@@ -34,10 +34,10 @@ module.exports = (sequelize, DataTypes) => {
     {
       title: DataTypes.STRING,
       price: {
-        type: DataTypes.DECIMAL,
-        get() {
+        type: DataTypes.INTEGER,
+       /*  get() {
           return toThousand(this.getDataValue("price"))
-        }
+        } */
       },
       description: DataTypes.TEXT,
       imagePrincipal: DataTypes.STRING,

@@ -1,13 +1,9 @@
-const { loadData } = require("../../database");
 const bcrypt = require("bcryptjs");
 
 const db = require("../../db/models");
 
 module.exports = (req, res) => {
   const { email, password, remember } = req.body;
-  // const users = loadData("users");
-
-  // const userFind = users.find((u) => u.email === email);
 
   db.User.findOne({
     where: {
