@@ -1,4 +1,4 @@
-module.exports = (data = []) => {
+const getTotalOrder = (data = []) => {
   return data.reduce(
     (
       acum,
@@ -15,3 +15,20 @@ module.exports = (data = []) => {
     0
   );
 };
+
+const getTotalOrderV2 = (data = []) => {
+  let total = 0;
+  data.forEach(
+    ({
+      price,
+      orderproducts: {
+        dataValues: { quantity },
+      },
+    }) => {
+      total += price * quantity;
+    }
+  );
+  return total;
+};
+
+module.exports = { getTotalOrder, getTotalOrderV2 };

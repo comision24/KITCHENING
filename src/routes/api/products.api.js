@@ -4,6 +4,7 @@ const {
   storeApi,
   updateApi,
   removeApi,
+  renderImg
 } = require("../../controllers/api/admin");
 const { uploadProducts } = require("../../middlewares/uploads");
 
@@ -28,5 +29,7 @@ router.put(
 );
 
 router.delete("/:id", removeApi);
+
+router.get("/:image", renderImg)
 
 module.exports = router;

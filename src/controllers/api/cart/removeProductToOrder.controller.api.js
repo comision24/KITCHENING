@@ -28,6 +28,7 @@ module.exports = async (req, res) => {
         },
       ],
     });
+    
     const total = getTotalOrder(order.products);
     
     order.total = total;

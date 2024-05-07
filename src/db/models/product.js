@@ -1,5 +1,5 @@
 "use strict";
-const toThousand = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const sequelizePaginate = require("sequelize-paginate")
 const { Model } = require("sequelize");
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
@@ -54,5 +54,7 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true
     }
   );
+
+  sequelizePaginate.paginate(Product)
   return Product;
 };
