@@ -17,7 +17,7 @@ const listInputArr = Array.from(listInputs) */
 const inputPass2 = document.querySelector("#contrasenia");
 const btnEye = document.querySelector("#btn-eye");
 
-const lblRemember = document.querySelector(".lbl-remember");
+const lblRemember = document.querySelector(".lbl-rememberr");
 /* 
 textContent
 innerText
@@ -33,10 +33,10 @@ innerHTML
 /* lblRemember.style.color = "#0000FF";
 lblRemember.style.width = "200%";
 lblRemember.style.textAlign = "center";
-lblRemember.style.backgroundColor = "rgba(200,200,200,.5)";
- */
+*/
 
 // lblRemember.classList.add("active")
+lblRemember.style.backgroundColor = "rgba(200,200,200,.5)";
 
 // lblRemember.classList.remove("active", "lbl-remember");
 
