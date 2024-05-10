@@ -8,17 +8,17 @@ const fieldTitle = check("title")
   .withMessage("El titulo es requerido")
   .bail()
   .isAlphanumeric("es-ES", { ignore: " .," })
-  .withMessage("El titulo debe ser alfanumerico")
+  .withMessage("El titulo debe ser alfanumérico")
   .bail()
   .isLength({ min: 5, max: 100 })
-  .withMessage("El titulo debe tener un minimo de 5 caracteres");
+  .withMessage("El titulo debe tener un mínimo de 5 caracteres");
 
 const fieldPrice = check("price")
   .notEmpty()
   .withMessage("El precio es requerido")
   .bail()
   .isNumeric()
-  .withMessage("El precio debe ser numerico")
+  .withMessage("El precio debe ser numérico")
   .bail()
   // .isInt({ min: 0 })
   // .withMessage("El precio debe tener un valor positivo")
@@ -31,11 +31,11 @@ const fieldDescription = check("description")
   .withMessage("La descripción es requerido")
   .bail()
   .isAlphanumeric("es-ES", { ignore: " .," })
-  .withMessage("La descripción debe ser alfanumerico")
+  .withMessage("La descripción debe ser alfanumérico")
   .bail()
   .isLength({ min: 30, max: 500 })
   .withMessage(
-    "La descripción debe tener un minimo de 30 y un maximo de 500 caracteres"
+    "La descripción debe tener un mínimo de 30 y un máximo de 500 caracteres"
   );
 
 const fieldChef = check("chef")
