@@ -12,11 +12,11 @@ module.exports = (req, res) => {
     include:["role"]
   }).then((user) => {
   
-    if (!user) res.send("El usuario no existe");
+    if (!user) return res.send("El usuario no existe");
 
     const isPasswordValid = bcrypt.compareSync(password, user?.password);
 
-    if (!isPasswordValid) res.send("El password es incorrecto");
+    if (!isPasswordValid) return res.send("El password es incorrecto");
 
     req.session.userLogin = {
       id: user.id,
@@ -30,5 +30,5 @@ module.exports = (req, res) => {
       res.cookie("userLogin", req.session.userLogin, { maxAge: 6000 * 30 });
 
     res.redirect("/");
-  });
+  }).catch((err) => res.send(err.message));
 };

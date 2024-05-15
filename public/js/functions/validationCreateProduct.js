@@ -52,7 +52,6 @@ window.addEventListener("load", () => {
   /* END VALIDATION INPUT TITLE */
 
   /* VALIDATION INPUT PRICE */
-
   const errPrice = document.querySelector(".error-price");
   inputPrecio.addEventListener("blur", function () {
     switch (true) {
