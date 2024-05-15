@@ -20,11 +20,11 @@ const fieldPrice = check("price")
   .isNumeric()
   .withMessage("El precio debe ser numérico")
   .bail()
-  // .isInt({ min: 0 })
-  // .withMessage("El precio debe tener un valor positivo")
+  .isInt({ gt: 0 })
+  .withMessage("El precio debe tener un valor positivo")
   // .bail()
-  .isDecimal()
-  .withMessage("El precio debe ser decimal");
+  // .isDecimal()
+  // .withMessage("El precio debe ser decimal");
 
 const fieldDescription = check("description")
   .notEmpty()
@@ -70,7 +70,7 @@ const fieldImagesSecondaryStore = body("imagesSecondary").custom(
   (value, { req }) => {
     const lengthImages = req.files?.imagesSecondary?.length;
 
-    if (!lengthImages) throw new Error("Debes ingresar imagenes secundarias");
+    if (!lengthImages) throw new Error("Debes ingresar imágenes secundarias");
     else {
       if (lengthImages > 3)
         throw new Error("No puedes ingresar mas de 3 archivos");
@@ -81,7 +81,7 @@ const fieldImagesSecondaryStore = body("imagesSecondary").custom(
       });
       if (existSomeFormatInvalid)
         throw new Error(
-          "Uno de los archivos son invalidos. Formatos validos: .png .jpg .jpeg .webp .gif"
+          "Uno de los archivos son inválidos. Formatos validos: .png .jpg .jpeg .webp .gif"
         );
     }
     return true;
