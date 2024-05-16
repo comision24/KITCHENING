@@ -1,45 +1,70 @@
 const inputTitle = document.querySelector("[name='title']");
 const inputPrecio = document.querySelector("[name='price']");
 const inputDescription = document.querySelector("[name='description']");
-const inputChef = document.querySelector("[name='chef']");
-const inputsSection = document.querySelectorAll("[name='section']"); // []
-const inputAvailable = document.querySelector("[name='available']");
+const inputChef = document.querySelector("[name='chefId']");
+// const inputsSection = document.querySelectorAll("[name='section']");
+// const inputAvailable = document.querySelector("[name='available']");
 const inputImagePrincipal = document.querySelector("[name='imagePrincipal']");
 const inputImageSecondary = document.querySelector("[name='imagesSecondary']");
-
+const exRegAlfanumeric = /^[a-zA-Z0-9\s]*$/;
 /* EVENTOS DE FORMULARIO */
 /* focus */
 
 window.addEventListener("load", () => {
   let existError = true;
-  const errTitle = document.querySelector(".error-title");
+
+  const statusInvalid = (elementErr, msgErr, elementInput) => {
+    elementErr.innerHTML = msgErr;
+    elementInput.classList.add("is-invalid");
+    existError = true;
+  };
+
+  const statusValid = (elementErr, elementInput) => {
+    elementErr.innerHTML = null;
+    elementInput.classList.add("is-valid");
+    elementInput.classList.remove("is-invalid");
+    existError = false;
+  };
 
   /* VALIDATION INPUT TITLE */
+  const errTitle = document.querySelector(".error-title");
   inputTitle.addEventListener("blur", function () {
     const value = this.value.trim();
-    const exRegAlfanumeric = /^[a-zA-Z0-9\s]*$/;
 
     switch (true) {
-      case value.length === 0:
-        errTitle.innerHTML = "El titulo es requerido";
-        this.classList.add("is-invalid");
-        break;
-
-      case value.length < 5 || value.length > 100:
-        errTitle.innerHTML = "El titulo debe tener un mínimo de 5 caracteres";
-        this.classList.add("is-invalid");
+      case !value.length:
+        // errTitle.innerHTML = "El titulo es requerido";
+        // this.classList.add("is-invalid");
+        // existError = true;
+        statusInvalid(errTitle, "El titulo es requerido", this);
         break;
 
       case !exRegAlfanumeric.test(value):
-        errTitle.innerHTML = "El titulo debe ser alfanumérico";
-        this.classList.add("is-invalid");
+        // errTitle.innerHTML = "El titulo debe ser alfanumérico";
+        // this.classList.add("is-invalid");
+        // existError = true;
+
+        statusInvalid(errTitle, "El titulo debe ser alfanumérico", this);
+        break;
+
+      case value.length < 5 || value.length > 100:
+        // errTitle.innerHTML = "El titulo debe tener un mínimo de 5 caracteres";
+        // this.classList.add("is-invalid");
+        // existError = true;
+        statusInvalid(
+          errTitle,
+          "El titulo debe tener un mínimo de 5 caracteres",
+          this
+        );
         break;
 
       default:
-        errTitle.innerHTML = null;
-        this.classList.add("is-valid");
-        this.classList.remove("is-invalid");
-        existError = false;
+        // errTitle.innerHTML = null;
+        // this.classList.add("is-valid");
+        // this.classList.remove("is-invalid");
+        // existError = false;
+
+        statusValid(errTitle, this);
         break;
     }
   });
@@ -54,19 +79,27 @@ window.addEventListener("load", () => {
   /* VALIDATION INPUT PRICE */
   const errPrice = document.querySelector(".error-price");
   inputPrecio.addEventListener("blur", function () {
+    const value = this.value.trim();
     switch (true) {
-      case this.value.length === 0:
-        errPrice.innerHTML = "El precio es requerido";
-        this.classList.add("is-invalid");
+      case !value.length:
+        // errPrice.innerHTML = "El precio es requerido";
+        // this.classList.add("is-invalid");
+        // existError = true;
+        statusInvalid(errPrice, "El precio es requerido", this);
         break;
-      case isNaN(this.value):
+
+      case isNaN(value):
         errPrice.innerHTML = "El precio debe ser numérico";
         this.classList.add("is-invalid");
+        existError = true;
         break;
-      case +this.value < 0:
+
+      case value < 0:
         errPrice.innerHTML = "El precio debe tener un valor positivo";
         this.classList.add("is-invalid");
+        existError = true;
         break;
+
       default:
         errPrice.innerHTML = null;
         this.classList.add("is-valid");
@@ -87,23 +120,25 @@ window.addEventListener("load", () => {
   const errDescription = document.querySelector(".error-description");
   inputDescription.addEventListener("blur", function () {
     const value = this.value.trim();
-    const exRegAlfanumeric = /^[a-zA-Z0-9\s]*$/;
 
     switch (true) {
-      case value.length === 0:
+      case !value.length:
         errDescription.innerHTML = "La descripción es requerido";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
       case !exRegAlfanumeric.test(value):
         errDescription.innerHTML = "La descripción debe ser alfanumérico";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
       case value.length < 30 || value.length > 500:
         errDescription.innerHTML =
           "La descripción debe tener un mínimo de 30 y un máximo de 500 caracteres";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
       default:
@@ -125,9 +160,11 @@ window.addEventListener("load", () => {
   /* VALIDATION INPUT CHEF */
   const errChef = document.querySelector(".error-chef");
   inputChef.addEventListener("blur", function () {
+    console.log(this.options);
     if (!this.options[this.selectedIndex].value) {
       errChef.innerHTML = "El chef es requerido";
       this.classList.add("is-invalid");
+      existError = true;
     } else {
       errChef.innerHTML = null;
       this.classList.add("is-valid");
@@ -137,10 +174,10 @@ window.addEventListener("load", () => {
   });
   /* END VALIDATION INPUT CHEF */
 
-
   /* VALIDATION INPUT IMAGE PRINCIPAL */
   const errImgPrincipal = document.querySelector(".err-img-principal");
   inputImagePrincipal.addEventListener("change", function () {
+    console.log(this.files);
     const regExpFiles = /.png|.jpg|.jpeg|.webp|.gif/i;
     const files = Array.from(this.files);
 
@@ -148,18 +185,24 @@ window.addEventListener("load", () => {
       case !files.length:
         errImgPrincipal.innerHTML = "Debes ingresar una imagen principal";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
       case files.length > 1:
         errImgPrincipal.innerHTML = "No puedes ingresar mas de 1 archivo";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
-      case files.some(file => !regExpFiles.test(file.name)):
-        errImgPrincipal.innerHTML = "El formato de la imagen principal es invalido";
+      case files.some(
+        (file) => !regExpFiles.test(file.name)
+      ) /* file (1).rar */:
+        errImgPrincipal.innerHTML =
+          "El formato de la imagen principal es invalido";
         this.classList.add("is-invalid");
+        existError = true;
         break;
-    
+
       default:
         errImgPrincipal.innerHTML = null;
         this.classList.add("is-valid");
@@ -167,24 +210,8 @@ window.addEventListener("load", () => {
         existError = false;
         break;
     }
-  })
+  });
 
-  inputImagePrincipal.addEventListener("blur", function () {
-    const files = Array.from(this.files);
-
-    switch (true) {
-      case !files.length:
-        errImgPrincipal.innerHTML = "Debes ingresar una imagen principal";
-        this.classList.add("is-invalid");
-        break;
-      default:
-        errImgPrincipal.innerHTML = null;
-        this.classList.add("is-valid");
-        this.classList.remove("is-invalid");
-        existError = false;
-        break;
-    }
-  })
   /* END VALIDATION INPUT IMAGE PRINCIPAL */
 
   /* VALIDATION INPUT IMAGE SECONDARY */
@@ -196,18 +223,22 @@ window.addEventListener("load", () => {
       case !files.length:
         errImgSecondary.innerHTML = "Debes ingresar imágenes secundarias";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
       case files.length > 3:
         errImgSecondary.innerHTML = "No puedes ingresar mas de 3 archivos";
         this.classList.add("is-invalid");
+        existError = true;
         break;
 
-      case files.some(file => !regExpFiles.test(file.name)):
-        errImgSecondary.innerHTML = "Uno de los archivos son inválidos. Formatos validos: .png .jpg .jpeg .webp .gif";
+      case files.some((file) => !regExpFiles.test(file.name)):
+        errImgSecondary.innerHTML =
+          "Uno de los archivos son inválidos. Formatos validos: .png .jpg .jpeg .webp .gif";
         this.classList.add("is-invalid");
+        existError = true;
         break;
-    
+
       default:
         errImgSecondary.innerHTML = null;
         this.classList.add("is-valid");
@@ -215,25 +246,8 @@ window.addEventListener("load", () => {
         existError = false;
         break;
     }
-  })
+  });
 
-  
-  inputImageSecondary.addEventListener("blur", function () {
-  const files = Array.from(this.files);
-
-  switch (true) {
-    case !files.length:
-      errImgSecondary.innerHTML = "Debes ingresar una imagen principal";
-      this.classList.add("is-invalid");
-      break;
-    default:
-      errImgSecondary.innerHTML = null;
-      this.classList.add("is-valid");
-      this.classList.remove("is-invalid");
-      existError = false;
-      break;
-  }
-})
   /* END VALIDATION INPUT IMAGE SECONDARY */
 
   /* FORMULARIO */
@@ -258,10 +272,8 @@ window.addEventListener("load", () => {
       case !isImageSecondary:
         existError = true;
         errFormGeneral.innerHTML = "Todos los campos son requeridos";
-        errFormGeneral.classList.add("alert","alert-danger");
-        fieldsRequired.forEach(field => {
-          field.innerHTML = "*";
-        });
+        errFormGeneral.classList.add("alert", "alert-danger");
+        fieldsRequired.forEach((field) => (field.innerHTML = "*"));
         break;
     }
 

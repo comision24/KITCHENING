@@ -38,9 +38,8 @@ const fieldDescription = check("description")
     "La descripción debe tener un mínimo de 30 y un máximo de 500 caracteres"
   );
 
-const fieldChef = check("chef")
-  .not()
-  .isIn([""])
+const fieldChef = check("chefId")
+  .notEmpty()
   .withMessage("El chef es requerido");
 
 const fieldSection = check("section")
@@ -77,7 +76,7 @@ const fieldImagesSecondaryStore = body("imagesSecondary").custom(
       const imagesSecondary = req.files.imagesSecondary;
       const existSomeFormatInvalid = imagesSecondary.some((img) => {
         const extFile = path.extname(img.originalname);
-        return regExpFiles.test(extFile);
+        return !regExpFiles.test(extFile);
       });
       if (existSomeFormatInvalid)
         throw new Error(

@@ -11,6 +11,7 @@
       <input type="text" name="title" class="form-control" value="<%= locals.old?.title %>">
       <p class="text-danger error-title">
         <%= locals.errors?.title?.msg %>
+        <!-- El titulo es requerido -->
       </p>
     </div>
 
@@ -20,6 +21,7 @@
       <input type="number" name="price" class="form-control" value="<%= locals.old?.price %>">
       <p class="text-danger error-price">
         <%= locals.errors?.price?.msg %>
+        <!-- El precio debe tener un valor positivo -->
       </p>
     </div>
 
@@ -35,11 +37,11 @@
     </div>
 
     <div class="mb-3 form-floating col-6">
-      <select class="form-select" id="floatingSelect" aria-label="Desplegar las opciones" name="chef">
+      <select class="form-select" id="floatingSelect" aria-label="Desplegar las opciones" name="chefId">
         <option value="" selected hidden>Seleccionar un chef</option>
 
         <% chefs.forEach(c=> { %>
-          <option <%=locals.old?.chef===c.name ? "selected" : null %> value="<%= c.id %>"><%= c.name %>
+          <option <%= +locals.old?.chefId === c.id ? "selected" : null %> value="<%= c.id %>"><%= c.name %>
           </option>
           <% }) %>
 
