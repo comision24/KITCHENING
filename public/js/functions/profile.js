@@ -32,9 +32,7 @@ window.addEventListener("load", async () => {
   });
 });
 
-
-const getOption = ({ id, nombre }) =>
-  `<option value="${id}">${nombre}</option>`;
+const getOption = ({ id, nombre }) => `<option value="${id}">${nombre}</option>`;
 
 const orderData = (a, b, keyData) => {
   
