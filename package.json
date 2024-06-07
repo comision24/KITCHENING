@@ -5,14 +5,17 @@
   "main": "./src/app.js",
   "scripts": {
     "start": "node ./src/bin/www",
-    "dev": "nodemon ./src/bin/www",
-    "db:reset": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all"
+    "db:reset": "sequelize db:drop & sequelize db:create & sequelize db:migrate & sequelize db:seed:all",
+    "server-dev": "nodemon ./src/bin/www",
+    "client-dev": "cd dashboard & npm run dev",
+    "dev": "concurrently \"npm run server-dev\" \"npm run client-dev\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "concurrently": "^8.2.2",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "ejs": "^3.1.9",
