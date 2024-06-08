@@ -1,8 +1,10 @@
-var createError = require("http-errors");
-var express = require("express");
-var path = require("path");
-var cookieParser = require("cookie-parser");
-var logger = require("morgan");
+const createError = require("http-errors");
+const express = require("express");
+const path = require("path");
+const cookieParser = require("cookie-parser");
+const logger = require("morgan");
+const cors = require('cors')
+
 const partials = require("express-partials");
 const methodOverride = require("method-override");
 const session = require("express-session");
@@ -34,6 +36,7 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
 // MIDDLEWARE
+app.use(cors())
 app.use(partials());
 app.use(logger("dev"));
 app.use(express.json());

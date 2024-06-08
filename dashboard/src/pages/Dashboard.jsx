@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import ContentRowTop from '../components/Dashboard/ContentRowTop'
+import React, { useEffect, useState } from "react";
+import PropTypes from "prop-types";
+import ContentRowTop from "../components/Dashboard/ContentRowTop";
 
 const metrics = [
   {
@@ -26,13 +26,10 @@ const metrics = [
   },
 ];
 
-const Dashboard = props => {
-  return (
-    <ContentRowTop data={metrics} />
-  )
-}
+const Dashboard = () => {
+  return  <ContentRowTop/>;
+};
 
-Dashboard.propTypes = {}
+Dashboard.propTypes = {};
 
-export default Dashboard
-
+export default Dashboard;

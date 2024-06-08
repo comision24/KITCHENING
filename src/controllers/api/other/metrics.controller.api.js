@@ -2,13 +2,35 @@ const db = require("../../../db/models");
 
 module.exports = async (req, res) => {
   const query = `
-  SELECT 'Total de usuarios' AS description, COUNT(id) AS count FROM users
+  SELECT 
+  'Total de usuarios' AS title,
+  'primary' AS color,
+  'user' AS icon,
+  COUNT(id) AS digit FROM users
+
   UNION ALL
-  SELECT 'Total de productos' AS description, COUNT(id) AS count FROM products
+
+  SELECT 
+  'Total de productos' AS title, 
+  'danger' AS color,
+  'book' AS icon,
+  COUNT(id) AS digit FROM products
+
   UNION ALL
-  SELECT 'Total de ordenes' AS description, COUNT(id) AS count FROM orders
+
+  SELECT 
+  'Total de ordenes' AS title, 
+  'warning' AS color,
+  'cart-shopping' AS icon,
+  COUNT(id) AS digit FROM orders
+
   UNION ALL
-  SELECT 'Total de chefs' AS description, COUNT(id) AS count FROM chefs
+
+  SELECT 
+  'Total de chefs' AS title, 
+  'success' AS color,
+  'kitchen-set' AS icon,
+  COUNT(id) AS digit FROM chefs
   `;
 
   try {

@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
 
     if (!q) throw new ErrorCustom(400, "La consulta no fue recibida");
 
-    if (/UPDATE|DROP|CREATE|ALTER|TRUNCATE/i.test(q)) {
+    if (/UPDATE|DROP|ALTER|TRUNCATE/i.test(q)) {
       throw new ErrorCustom(
         400,
         "La consulta no es válida (UPDATE, DROP, CREATE, ALTER, TRUNCATE) no son permitidas"
