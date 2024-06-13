@@ -1,24 +1,187 @@
 <!DOCTYPE html>
 <html lang="en">
-  <%- include("../partials/head") %>
-<body class="cart-body">
 
-  <div class="contain-dots" id="contain-dots">
-    <div class="dot-spin"></div>
-  </div>
+<%- include('../partials/head') %>
+  <style>
+    input[type=number]::-webkit-inner-spin-button,
+    input[type=number]::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
 
-  <%- include("../partials/header") %>
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+
+    .btn-clear {
+      transition: background-color 200ms, color 200ms;
+    }
+
+    .btn-clear:hover {
+      background-color: rgb(240, 184, 184);
+      color: white;
+    }
+  </style>
+
+  <body class="cart">
+    <!-- encabezado -->
+    <%- include('../partials/header') %>
+
+      <!-- principal -->
+      <main class="container">
+
+        <div class="row position-relative my-5">
+
+          <div id="card-container" class="col-8">
+
+            <!-- COURSE TEMPLATE CARD -->
+            <div class="card col-12 col-lg-10 my-5">
+              <div class="card-body row">
+                
+                <img class="col-4" style="object-fit: contain;" src="https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png" alt="">
+                <div class="col-8 position-relative">
+                  <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger " style="top:-3px;right:10px"><i style="padding:2px" class="rounded-circle btn-clear far fa-times-circle"></i></button>
   
-  <main>
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem!</p>
+                  <p class="d-flex align-items-center gap-2">
+                    <label for="">Cantidad </label>
+                    <button class="btn btn-light">-</button>
+                    <output style="width:50px"  class="form-control text-center">
+                      1
+                    </output>
+                    <button class="btn btn-light">+</button>
+                    <a href="#" class="btn btn-outline-dark">Ver más</a>
+                  </p>
+                </div>
+             
+              </div>
+            </div>
 
-    <h3>ESTE ES EL CONTENIDO DE LA VISTA "CARRITO DE COMPRA"</h3>
+            <!-- COURSE TEMPLATE CARD -->
+            <div class="card col-12 col-lg-10 my-5">
+              <div class="card-body row">
+                
+                <img class="col-4" style="object-fit: contain;" src="https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png" alt="">
+                <div class="col-8 position-relative">
+                  <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger " style="top:-3px;right:10px"><i style="padding:2px" class="rounded-circle btn-clear far fa-times-circle"></i></button>
+  
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem!</p>
+                  <p class="d-flex align-items-center gap-2">
+                    <label for="">Cantidad </label>
+                    <button class="btn btn-light">-</button>
+                    <output style="width:50px"  class="form-control text-center">
+                      1
+                    </output>
+                    <button class="btn btn-light">+</button>
+                    <a href="#" class="btn btn-outline-dark">Ver más</a>
+                  </p>
+                </div>
+             
+              </div>
+            </div>
 
-  </main>
-  <%- include("../partials/footer") %>
-  <%- include("../partials/scripts",{
-    disabledAos:true,
-    disabledGlider:true
-  }) %>
-</body>
+            <!-- COURSE TEMPLATE CARD -->
+            <div class="card col-12 col-lg-10 my-5">
+              <div class="card-body row">
+                
+                <img class="col-4" style="object-fit: contain;" src="https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png" alt="">
+                <div class="col-8 position-relative">
+                  <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger " style="top:-3px;right:10px"><i style="padding:2px" class="rounded-circle btn-clear far fa-times-circle"></i></button>
+  
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem!</p>
+                  <p class="d-flex align-items-center gap-2">
+                    <label for="">Cantidad </label>
+                    <button class="btn btn-light">-</button>
+                    <output style="width:50px"  class="form-control text-center">
+                      1
+                    </output>
+                    <button class="btn btn-light">+</button>
+                    <a href="#" class="btn btn-outline-dark">Ver más</a>
+                  </p>
+                </div>
+             
+              </div>
+            </div>
+            <!-- COURSE TEMPLATE CARD -->
+            <div class="card col-12 col-lg-10 my-5">
+              <div class="card-body row">
+                
+                <img class="col-4" style="object-fit: contain;" src="https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png" alt="">
+                <div class="col-8 position-relative">
+                  <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger " style="top:-3px;right:10px"><i style="padding:2px" class="rounded-circle btn-clear far fa-times-circle"></i></button>
+  
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem!</p>
+                  <p class="d-flex align-items-center gap-2">
+                    <label for="">Cantidad </label>
+                    <button class="btn btn-light">-</button>
+                    <output style="width:50px"  class="form-control text-center">
+                      1
+                    </output>
+                    <button class="btn btn-light">+</button>
+                    <a href="#" class="btn btn-outline-dark">Ver más</a>
+                  </p>
+                </div>
+             
+              </div>
+            </div>
+            <!-- COURSE TEMPLATE CARD -->
+            <div class="card col-12 col-lg-10 my-5">
+              <div class="card-body row">
+                
+                <img class="col-4" style="object-fit: contain;" src="https://wpdirecto.com/wp-content/uploads/2017/08/alt-de-una-imagen.png" alt="">
+                <div class="col-8 position-relative">
+                  <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger " style="top:-3px;right:10px"><i style="padding:2px" class="rounded-circle btn-clear far fa-times-circle"></i></button>
+  
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente, exercitationem!</p>
+                  <p class="d-flex align-items-center gap-2">
+                    <label for="">Cantidad </label>
+                    <button class="btn btn-light">-</button>
+                    <output style="width:50px"  class="form-control text-center">
+                      1
+                    </output>
+                    <button class="btn btn-light">+</button>
+                    <a href="#" class="btn btn-outline-dark">Ver más</a>
+                  </p>
+                </div>
+             
+              </div>
+            </div>
+
+          </div>
+
+          <div class="card col-4 my-5 position-sticky" style="height:fit-content;top:20px">
+            <div class="card-body my-2 d-flex flex-column gap-2">
+              <button class="btn w-100 btn-danger" id="clear-cart">Vaciar Carrito</button>
+              <button class="btn w-100 btn-success" id="btn-buy">Comprar</button>
+              <a href="/courses/list" class="btn w-100 btn-dark">Seguir mirando</a>
+              <div class="text-end fs-3" >
+                <span >
+                  Total:
+                </span>
+                <output id="show-total">
+                  0
+                </output>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+
+
+      <%- include('../partials/footer') %>
+
+
+        <%- include('../partials/scripts') %>
+
+          <script src="/javascripts/home.js"></script>
+          <script src="/javascripts/cart.js"></script>
+
+  </body>
 
 </html>

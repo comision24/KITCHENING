@@ -63,7 +63,7 @@ module.exports = async (req, res) => {
     } catch(err) {
       res.status(err.status || 500).json({
         ok: false,
-        msg: err.message,
+        msg: err.message
       })
     }
     
