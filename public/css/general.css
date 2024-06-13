@@ -1,11 +1,11 @@
 :root {
-  --gray:#3a3a3c;
+  --gray: #3a3a3c;
   --white: white;
-  --red:#c80000;
-  --light_gray:#cacaca;
+  --red: #c80000;
+  --light_gray: #cacaca;
 
   /* FONTS */
-  --FamilyRoboto:'Roboto', sans-serif;
+  --FamilyRoboto: 'Roboto', sans-serif;
   --FamilyInconsolata: "Inconsolata", monospace;
 }
 
@@ -29,6 +29,7 @@ ul {
 
 body {
   /* margin: 5px 5px 0 5px; */
+  background-image: url("/images/other/bg-body.png") !important;
 }
 
 
@@ -42,11 +43,11 @@ body {
   top: 0;
   left: 0;
   z-index: 100;
-  background-color: rgba(255,255,255,.7);
+  background-color: rgba(255, 255, 255, .7);
 }
 
 textarea {
-  resize: none; 
+  resize: none;
   overflow: hidden;
-  form-sizing:content !important;
+  form-sizing: content !important;
 }
