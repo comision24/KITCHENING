@@ -3,7 +3,7 @@ const cutText = (text = "", long) => text.substring(0, long) + "...";
 const converterMoneyArg = (num = 0) =>
   num.toLocaleString({
     currency: "ARS",
-    style: "currency",
+    style: "currency", 
   });
 
 const server = "http://localhost:3030";
