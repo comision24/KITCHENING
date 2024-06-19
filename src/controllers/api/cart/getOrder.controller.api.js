@@ -9,7 +9,6 @@ module.exports = async (req, res) => {
     const statusCode = isCreate ? 201 : 200;
     res.status(statusCode).json({
       ok: true,
-      isCreate,
       data: await order.reload({
         include: [
           {
