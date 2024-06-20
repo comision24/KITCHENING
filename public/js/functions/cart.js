@@ -181,3 +181,23 @@ const moreProduct = async (id) => {
     console.error(error.message);
   }
 };
+
+
+const removeProductCart = async (id) => {
+  try {
+    const containerProducts = $("#card-container");
+    const outputTotal = $("#show-total");
+    const { ok, msg } = await fetch(
+      `${server}/api/cart/remove/${id}?idUser=2`,
+      {
+        method: "PATCH",
+      }
+    ).then((res) => res.json());
+
+    if (ok) {
+      processReloadCart(server, containerProducts, outputTotal);
+    }
+  } catch (error) {
+    console.error(error.message);
+  }
+};
