@@ -1,10 +1,37 @@
 const $ = (element) => document.querySelector(element);
 const cutText = (text = "", long) => text.substring(0, long) + "...";
+
 const converterMoneyArg = (num = 0) =>
   num.toLocaleString({
     currency: "ARS",
-    style: "currency", 
+    style: "currency",
   });
+
+  const createAlertProgress = ({
+    title = "Realizando la compra...",
+    html = "progreso <b></b> milisegundos.",
+    timer = 2000,
+  }) => {
+    let timerInterval;
+    return Swal.fire({
+      title,
+      html,
+      timer,
+      timerProgressBar: true,
+      didOpen: () => {
+        Swal.showLoading();
+        const timer = Swal.getPopup().querySelector("b");
+        timerInterval = setInterval(() => {
+          timer.textContent = `${Swal.getTimerLeft()}`;
+        }, 100);
+      },
+      willClose: () => {
+        clearInterval(timerInterval);
+      },
+    });
+  };
+
+  
 
 const server = "http://localhost:3030";
 let productsCart = [];
@@ -20,7 +47,9 @@ const getCardStructure = (p) => {
           src="${p.imagePrincipal}" alt="">
         <div class="col-8 position-relative">
           <button class="fs-5 p-0 border-0 bg-transparent position-absolute text-danger "
-            style="top:-3px;right:10px" onclick=""><i style="padding:2px"
+            style="top:-3px;right:10px" onclick="removeProductCart(${
+              p.id
+            })"><i style="padding:2px"
               class="rounded-circle btn-clear far fa-times-circle"></i></button>
 
           <h5 class="card-title">${p.title}</h5>
@@ -57,13 +86,13 @@ const paintCartsInView = (products = [], elementContainerProduct) => {
 const processReloadCart = async (server, containerProducts, outputTotal) => {
   const {
     ok,
-    data: {total ,products },
+    data: { total, products },
   } = await getShoppingCart(server);
 
   ok && (productsCart = products);
 
   paintCartsInView(productsCart, containerProducts);
-  outputTotal.innerHTML = total
+  outputTotal.innerHTML = total;
 };
 
 window.addEventListener("load", async (event) => {
@@ -80,27 +109,51 @@ window.addEventListener("load", async (event) => {
   // Eliminar todos los productos del orden
   btnClearCart.addEventListener("click", async () => {
     try {
-
       const { ok, msg } = await fetch(`${server}/api/cart/clear?idUser=2`, {
         method: "PATCH",
       }).then((res) => res.json());
 
       if (ok) {
-        processReloadCart(server, containerProducts);
+        processReloadCart(server, containerProducts, outputTotal);
       }
+    } catch (error) {
+      console.error(error.message);
+    }
+  });
 
+  btnBuy.addEventListener("click", async () => {
+    try {
+      const { ok, msg } = await fetch(`${server}/api/cart/completed?idUser=2`, {
+        method: "PATCH",
+      }).then((res) => res.json());
+
+      if (ok) {
+        const result = await createAlertProgress({
+          title: "Completando compra...",
+          timer: 4000,
+        })
+
+        /* Read more about handling dismissals below */
+        if (result.dismiss === Swal.DismissReason.timer) {
+          processReloadCart(server, containerProducts, outputTotal);
+
+          setTimeout(() => {
+            location.href = "/";
+          }, 1000);
+        }
+       
+      }
     } catch (error) {
       console.error(error.message);
     }
   });
 });
 
-// Disminuir un producto
 const lessProduct = async (id) => {
   try {
     const containerProducts = $("#card-container");
     const outputTotal = $("#show-total");
-    
+
     const { ok, msg } = await fetch(`${server}/api/cart/less/${id}?idUser=2`, {
       method: "PATCH",
     }).then((res) => res.json());
@@ -123,15 +176,8 @@ const moreProduct = async (id) => {
       method: "PATCH",
     }).then((res) => res.json());
 
-    if (ok) {
-      processReloadCart(server, containerProducts, outputTotal);
-    }
-    // console.log({ok, msg})
+    if (ok) processReloadCart(server, containerProducts, outputTotal);
   } catch (error) {
     console.error(error.message);
   }
 };
-
-const removeProductCart = async (id) => {
-
-}

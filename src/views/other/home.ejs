@@ -35,8 +35,11 @@
                         <h5 class="card-title"><%= p.title %></h5>
                         <p class="card-text"><%= p.description %></p>
                       </div>
-                      <div class="m-3">
+                      <div class="m-3 d-flex justify-content-between">
                         <a href="/productos/detalle/<%= p.id %>" class="btn btn-danger btn-danger-custom align-self-start w-50">Ver más</a>
+                        <button class="btn btn-success" type="button" onclick="addProductCart('<%= p.id %>')">
+                          <i class="fa-solid fa-cart-shopping"></i>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -62,6 +65,11 @@
 
       </main>
 
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+      <script src="/js/library/toastr.min.js"></script>
+      <script src="/js/functions/addProductToCart.js"></script>
+
+
       <%- include("../partials/footer") %>
 
         <%- include("../partials/scripts") %>
@@ -74,7 +82,6 @@
           window.alert(data);
         </script> -->
 
-        <script src="/js/functions/example.js"></script>
 
   </body>
 

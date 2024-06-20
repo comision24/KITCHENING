@@ -9,7 +9,7 @@ const getTotalOrder = (data = []) => {
         },
       }
     ) => {
-      acum = price * quantity;
+      acum += price * quantity;
       return acum;
     },
     0
