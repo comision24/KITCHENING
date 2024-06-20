@@ -26,7 +26,7 @@ toastr.options = {
   "showMethod": "fadeIn",
   "hideMethod": "fadeOut"
 }
-toastr["success"]("I do not think that means what you think it means.")
+
 
 
 const addProductCart = async (id) => {
@@ -36,7 +36,9 @@ const addProductCart = async (id) => {
       method: "PATCH",
     }).then((res) => res.json());
 
-    ok && createAlert({type:"success", title:"", timer: 500})
+    ok && 
+    toastr["success"]("Producto agregado al carrito con éxito")
+    // createAlert({type:"success", title:"", timer: 500})
   } catch (error) {
     console.error(error.message);
   }
