@@ -1,9 +1,12 @@
+require("dotenv").config();
 const createError = require("http-errors");
 const express = require("express");
 const path = require("path");
 const cookieParser = require("cookie-parser");
 const logger = require("morgan");
-const cors = require('cors')
+const cors = require('cors');
+const passport = require("passport")
+const { configServiceLogInGoogle } = require("./service/google.service");
 
 const partials = require("express-partials");
 const methodOverride = require("method-override");
@@ -27,9 +30,10 @@ const apiProductRoutes = require("./routes/api/products.api")
 const apiAuthRoutes = require("./routes/api/authentication.api")
 const apiCartRoutes = require("./routes/api/cart.api")
 const apiAdminRoutes = require("./routes/api/admin.api")
-const apiUserRoutes = require("./routes/api/users.api")
+const apiUserRoutes = require("./routes/api/users.api");
 
 var app = express();
+configServiceLogInGoogle();
 
 /* CONFIGS */
 app.set("views", path.join(__dirname, "views"));
@@ -47,6 +51,8 @@ app.use(methodOverride("_method"));
 app.use(
   session({ secret: "palabra secreta", resave: true, saveUninitialized: true })
 );
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(checkCookie);
 app.use(checkSession);

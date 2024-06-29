@@ -10,7 +10,7 @@ const usersDBMapped = usersJSON.map(u => {
     surname: u.surname,
     email: u.email,
     password: u.password,
-    avatar: u.avatar,
+    avatar: u.avatar || "default-img.jpg",
     roleId: role.id
   }
 })

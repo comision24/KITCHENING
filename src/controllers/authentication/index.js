@@ -4,5 +4,6 @@ module.exports = {  // MVC
   processLogin: require("./processLogin.controller"),
   processRegister: require("./processRegister.controller"),
   logout: require("./logout.controller"),
-  userDelete: require("./userDelete.controller")
+  userDelete: require("./userDelete.controller"),
+  loginAndRegisterGoogle: require("./loginAndRegisterGoogle.controller")
 };
