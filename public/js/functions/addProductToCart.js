@@ -30,7 +30,7 @@ toastr.options = {
 
 
 const addProductCart = async (id) => {
-  const server = "http://localhost:3030";
+  const server = "https://kitchening.cleverapps.io";
   try {
     const { ok, msg } = await fetch(`${server}/api/cart/add/${id}?idUser=2`, {
       method: "PATCH",

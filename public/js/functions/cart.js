@@ -33,7 +33,7 @@ const converterMoneyArg = (num = 0) =>
 
   
 
-const server = "http://localhost:3030";
+const server = "https://kitchening.cleverapps.io";
 let productsCart = [];
 
 const getShoppingCart = (server) =>
