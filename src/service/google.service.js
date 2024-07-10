@@ -1,4 +1,4 @@
-const Strategy = require("passport-google-oauth").OAuthStrategy;
+const Strategy = require("passport-google-oauth").OAuth2Strategy;
 const passport = require("passport")
 
 const clientID = process.env.GOOGLE_CLIENT_ID
